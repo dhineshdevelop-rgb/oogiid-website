@@ -17,10 +17,10 @@ sections.forEach(section=>sectionObserver.observe(section));
 
 const typeSelect=document.querySelector('#requirement-type');
 const choiceButtons=[...document.querySelectorAll('[data-inquiry-choice]')];
-function chooseInquiry(value){typeSelect.value=value;choiceButtons.forEach(button=>button.classList.toggle('active',button.dataset.inquiryChoice===value))}
+function chooseInquiry(value){if(!typeSelect)return;typeSelect.value=value;const drawingNote=document.querySelector('#drawing-note');if(drawingNote)drawingNote.hidden=value!=='Drawing Review';choiceButtons.forEach(button=>button.classList.toggle('active',button.dataset.inquiryChoice===value))}
 choiceButtons.forEach(button=>button.addEventListener('click',()=>chooseInquiry(button.dataset.inquiryChoice)));
 document.querySelectorAll('[data-inquiry]').forEach(link=>link.addEventListener('click',()=>chooseInquiry(link.dataset.inquiry)));
-typeSelect.addEventListener('change',()=>choiceButtons.forEach(button=>button.classList.toggle('active',button.dataset.inquiryChoice===typeSelect.value)));
+typeSelect?.addEventListener('change',()=>chooseInquiry(typeSelect.value));
 
-document.querySelector('#contact-form').addEventListener('submit',event=>{event.preventDefault();const note=event.currentTarget.querySelector('.form-note');note.textContent='Thanks — this preview is ready to connect to your preferred form service or backend.';note.classList.add('success')});
+document.querySelector('#contact-form')?.addEventListener('submit',event=>{event.preventDefault();const note=event.currentTarget.querySelector('.form-note');note.textContent='Your details are filled in, but this preview cannot send or save them yet. Enquiry submission and secure drawing upload are coming soon.';note.classList.add('success')});
 document.querySelector('#year').textContent=new Date().getFullYear();
