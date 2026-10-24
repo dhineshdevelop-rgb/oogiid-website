@@ -1,26 +1,59 @@
-const header = document.querySelector('.site-header');
-const menuButton = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.site-nav');
-const navLinks = [...document.querySelectorAll('.site-nav a[href^="#"]')];
+export function initNavigation(doc, win) {
+  const local = ['localhost', '127.0.0.1', '[::1]'].includes(win.location.hostname);
+  const appOrigin = local ? 'http://localhost:4200' : 'https://oogiid-ui.vercel.app';
+  doc.querySelectorAll('[data-app-path]').forEach(link => {
+    link.href = `${appOrigin}${link.dataset.appPath}`;
+  });
+  const header = doc.querySelector('.site-header');
+  const button = doc.querySelector('.menu-toggle');
+  const nav = doc.querySelector('.site-nav');
+  const links = [...doc.querySelectorAll('.site-nav a[href^="#"]')];
+  if (button && nav) {
+    function setMenu(open) {
+      button.classList.toggle('active', open);
+      nav.classList.toggle('open', open);
+      button.setAttribute('aria-expanded', String(open));
+      button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      doc.body.classList.toggle('menu-open', open);
+    }
+    button.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    links.forEach(link => link.addEventListener('click', () => setMenu(false)));
+  }
+  if (header) win.addEventListener('scroll', () => header.classList.toggle('scrolled', win.scrollY > 12), { passive: true });
+  const year = doc.querySelector('#year');
+  if (year) year.textContent = String(new win.Date().getFullYear());
+  return links;
+}
 
-function closeMenu(){menuButton.classList.remove('active');nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Open navigation');document.body.classList.remove('menu-open')}
-menuButton.addEventListener('click',()=>{const opening=!nav.classList.contains('open');menuButton.classList.toggle('active',opening);nav.classList.toggle('open',opening);menuButton.setAttribute('aria-expanded',String(opening));menuButton.setAttribute('aria-label',opening?'Close navigation':'Open navigation');document.body.classList.toggle('menu-open',opening)});
-navLinks.forEach(link=>link.addEventListener('click',closeMenu));
-window.addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>12),{passive:true});
+export function initObservers(doc, win, links) {
+  const elements = [...doc.querySelectorAll('.reveal')];
+  if (!win.IntersectionObserver) {
+    elements.forEach(element => element.classList.add('visible'));
+    return;
+  }
+  const reveal = new win.IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        reveal.unobserve(entry.target);
+      }
+    });
+  }, { threshold: .12, rootMargin: '0px 0px -30px' });
+  elements.forEach((element, index) => {
+    element.style.transitionDelay = `${Math.min(index % 4, 3) * 60}ms`;
+    reveal.observe(element);
+  });
+  const sections = new win.IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) links.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+    });
+  }, { rootMargin: '-35% 0px -55%' });
+  doc.querySelectorAll('main section[id]').forEach(section => sections.observe(section));
+}
 
-const observer = new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12,rootMargin:'0px 0px -30px'});
-document.querySelectorAll('.reveal').forEach((el,index)=>{el.style.transitionDelay=`${Math.min(index%4,3)*60}ms`;observer.observe(el)});
+export function initializeWebsite(doc, win) {
+  const links = initNavigation(doc, win);
+  initObservers(doc, win, links);
+}
 
-const sections=[...document.querySelectorAll('main section[id]')];
-const sectionObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(link=>link.classList.toggle('active',link.getAttribute('href')===`#${entry.target.id}`))}}),{rootMargin:'-35% 0px -55%'});
-sections.forEach(section=>sectionObserver.observe(section));
-
-const typeSelect=document.querySelector('#requirement-type');
-const choiceButtons=[...document.querySelectorAll('[data-inquiry-choice]')];
-function chooseInquiry(value){if(!typeSelect)return;typeSelect.value=value;const drawingNote=document.querySelector('#drawing-note');if(drawingNote)drawingNote.hidden=value!=='Drawing Review';choiceButtons.forEach(button=>button.classList.toggle('active',button.dataset.inquiryChoice===value))}
-choiceButtons.forEach(button=>button.addEventListener('click',()=>chooseInquiry(button.dataset.inquiryChoice)));
-document.querySelectorAll('[data-inquiry]').forEach(link=>link.addEventListener('click',()=>chooseInquiry(link.dataset.inquiry)));
-typeSelect?.addEventListener('change',()=>chooseInquiry(typeSelect.value));
-
-document.querySelector('#contact-form')?.addEventListener('submit',event=>{event.preventDefault();const note=event.currentTarget.querySelector('.form-note');note.textContent='Your details are filled in, but this preview cannot send or save them yet. Enquiry submission and secure drawing upload are coming soon.';note.classList.add('success')});
-document.querySelector('#year').textContent=new Date().getFullYear();
+if (typeof document !== 'undefined') initializeWebsite(document, window);

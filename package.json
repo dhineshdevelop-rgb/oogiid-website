@@ -1,0 +1,7 @@
+{
+  "name": "oogiid-website",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node --test --experimental-test-coverage", "check": "node --check script.js && node --check config.js" },
+  "devDependencies": { "jsdom": "26.1.0" }
+}
