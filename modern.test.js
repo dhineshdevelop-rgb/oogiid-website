@@ -75,3 +75,33 @@ for (const [original, redesigned] of [['index.html', 'modern.html'], ['capabilit
     dom.window.close();
   });
 }
+
+
+for (const [primary, reference] of [['index.html', 'modern.html'], ['capabilities.html', 'modern-capabilities.html']]) {
+  test(`${primary} serves the modern design as the primary page with canonical links and working navigation`, () => {
+    const source = readFileSync(new URL(primary, import.meta.url), 'utf8');
+    const expected = readFileSync(new URL(reference, import.meta.url), 'utf8')
+      .replaceAll('modern-capabilities.html', 'capabilities.html').replaceAll('modern.html', 'index.html');
+    assert.equal(source, expected);
+    const dom = new JSDOM(source, { url: `https://dhineshdevelop-rgb.github.io/oogiid-website/${primary}`, runScripts: 'dangerously' });
+    const doc = dom.window.document;
+    assert.equal(doc.querySelector('script').textContent.trim(), behavior.trim());
+    assert.ok(doc.querySelector('style').textContent.includes('@media(max-width:760px)'));
+    for (const link of doc.querySelectorAll('a[href]')) {
+      const href = link.getAttribute('href');
+      assert.ok(!href.includes('modern.html') && !href.includes('modern-capabilities.html'));
+      if (/^(index|capabilities)\.html/.test(href)) {
+        const [file, id] = href.split('#');
+        const target = new JSDOM(readFileSync(new URL(file, import.meta.url), 'utf8'));
+        if (id) assert.ok(target.window.document.getElementById(id), `${primary}: ${href}`);
+        target.window.close();
+      }
+    }
+    assert.equal(doc.querySelector('[data-app-path="/signup"]').href, 'https://oogiid-ui.vercel.app/signup');
+    assert.equal(doc.querySelector('[data-app-path="/login"]').href, 'https://oogiid-ui.vercel.app/login');
+    const menu = doc.querySelector('.menu-toggle');
+    menu.click(); assert.equal(menu.getAttribute('aria-expanded'), 'true');
+    menu.click(); assert.equal(menu.getAttribute('aria-expanded'), 'false');
+    dom.window.close();
+  });
+}

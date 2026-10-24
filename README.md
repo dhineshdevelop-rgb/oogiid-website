@@ -13,7 +13,7 @@ npm run check
 python3 -m http.server 5173
 ```
 
-Open `http://localhost:5173`. Serve over HTTP instead of opening `index.html` directly because the website uses JavaScript modules. `npm test` runs isolated Node tests with jsdom and coverage; it does not contact the API or send email.
+Open `http://localhost:5173`. The root URL serves the modern design through `index.html`. The homepage and capabilities page also work directly from disk with their embedded scripts. `npm test` runs isolated Node tests with jsdom and coverage; it does not contact the API or send email.
 
 ## Account navigation
 
@@ -29,13 +29,13 @@ The earlier [registration implementation plan](WEBSITE_REGISTRATION_IMPLEMENTATI
 
 `script.test.js` covers all remaining application functions: `initNavigation` (account URL routing, menu open/close and link callbacks, scroll threshold, year, absent optional elements), `initObservers` (fallback, reveal callback and unobserve, delays, active-section callback), and `initializeWebsite` (both pages and browser startup). Flow regression tests verify signup/login entry points and removal of enquiry controls and contact links.
 
-## Separate modern design
+## Primary modern design
 
-The redesign uses an ivory, cobalt, apricot and lavender editorial style with a centered serif hero, wide component illustration, asymmetric capability cards and pill-shaped actions. Open `modern.html` for the redesigned homepage and `modern-capabilities.html` for its matching capabilities page. Both files keep the existing content, app logo, account routing, mobile menu, scroll navigation, and reveal behavior. Links between these pages stay within the redesign. The separate redesign retains its own styling; both original and redesigned pages share the updated toolbar and footer logo treatment.
+The redesign uses an ivory, cobalt, apricot and lavender editorial style with a centered serif hero, wide component illustration, asymmetric capability cards and pill-shaped actions. The modern design is the primary website: `index.html` serves the homepage at the root URL, and `capabilities.html` serves the matching capabilities page. Navigation and footer links use these primary filenames. Both pages retain the existing content, app logo, account routing, mobile menu, scroll navigation, and reveal behavior. `modern.html` and `modern-capabilities.html` remain available as standalone design references.
 
-Each HTML file embeds its CSS and the existing JavaScript so it can also be opened directly from disk. Keep the files alongside `app_logo-black-text.png`, `app_logo-white-text.png`, and `fonts/` for branding and the self-hosted font. HTTP preview is available at `http://localhost:5173/modern.html` using the server command above. Account links use the local Angular app on localhost and the production app when opened from disk or another host.
+Each HTML file embeds its CSS and the existing JavaScript so it can also be opened directly from disk. Keep the files alongside `app_logo-black-text.png`, `app_logo-white-text.png`, and `fonts/` for branding and the self-hosted font. The primary HTTP preview is available at `http://localhost:5173/` using the server command above. Account links use the local Angular app on localhost and the production app when opened from disk or another host.
 
-Validation: `modern.test.js` checks both standalone pages, content and link parity, section targets, brand assets, local/production account destinations, menu state and labels, scroll thresholds, reveal fallback, and disk startup. It asserts that the embedded script exactly matches `script.js` with module exports removed. Method-to-test checklist: `initNavigation` and its menu/link/scroll callbacks, `initObservers` and its reveal/section callbacks, and `initializeWebsite` retain the isolated unit cases in `script.test.js`; standalone initialization and navigation additionally run in `modern.test.js`. No new application functions were introduced. Browser rendering and live account services are not covered by these Node tests.
+Validation: `modern.test.js` verifies that both primary pages use the modern design and canonical navigation links, then checks the standalone reference pages, content and link parity, section targets, brand assets, local/production account destinations, menu state and labels, scroll thresholds, reveal fallback, and disk startup. It asserts that the embedded script exactly matches `script.js` with module exports removed. Method-to-test checklist: `initNavigation` and its menu/link/scroll callbacks, `initObservers` and its reveal/section callbacks, and `initializeWebsite` retain the isolated unit cases in `script.test.js`; standalone initialization and navigation additionally run in `modern.test.js`. No new application functions were introduced. Browser rendering and live account services are not covered by these Node tests.
 
 ## Transparent horizontal logos
 
