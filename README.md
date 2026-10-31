@@ -1,5 +1,11 @@
 # OOGIID website
 
+## Image-enhanced previews
+
+Open [index-images.html](index-images.html) or [capabilities-images.html](capabilities-images.html) for separate copies with six industrial photographs in each page's existing capability cards. They link to each other and preserve the original text, design, illustrations, and embedded JavaScript. Existing HTML pages are unchanged. Open directly from disk with this directory's assets present, or serve locally using the command below and visit `/index-images.html`.
+
+Images are stored locally in `assets/industrial/`; [photography sources and license](assets/industrial/README.md) are documented there. The photographs represent capability areas, not OOGIID-owned facilities. `images.test.js` checks content/design parity after removing the image additions, local assets, accessibility attributes, preview links, and standalone behavior. No new application functions were introduced; `script.test.js` retains the method-level unit tests for the unchanged behavior.
+
 Responsive marketing website using HTML, CSS, and JavaScript modules. Inter is self-hosted under its included font license; buttons use a shared navy palette.
 
 Production website: https://dhineshdevelop-rgb.github.io/oogiid-website/
@@ -19,7 +25,7 @@ Open `http://localhost:5173`. The root URL serves the modern design through `ind
 
 The website introduces OOGIID's services and capabilities. Sign up and Log in are the account actions in the navigation, homepage hero, and footer. Business, manufacturing partner, and capabilities calls to action lead to signup. There is no project enquiry form, drawing upload action, or website account-creation API request.
 
-Production links open `https://oogiid-ui.vercel.app/signup` and `https://oogiid-ui.vercel.app/login`. Signup uses the application's existing Google onboarding flow.
+Production links open `https://oogiid-ui.onrender.com/signup` and `https://oogiid-ui.onrender.com/login`. Signup uses the application's existing Google onboarding flow.
 
 When served on `localhost`, `127.0.0.1`, or `[::1]`, JavaScript updates every account link to `http://localhost:4200/signup` or `http://localhost:4200/login`. Start the Angular application on port 4200 for local navigation. Other hosts retain production URLs, including GitHub Pages and its repository path. The website does not require an API origin or email-provider configuration.
 

@@ -1,6 +1,6 @@
 export function initNavigation(doc, win) {
   const local = ['localhost', '127.0.0.1', '[::1]'].includes(win.location.hostname);
-  const appOrigin = local ? 'http://localhost:4200' : 'https://oogiid-ui.vercel.app';
+  const appOrigin = local ? 'http://localhost:4200' : 'https://oogiid-ui.onrender.com';
   doc.querySelectorAll('[data-app-path]').forEach(link => {
     link.href = `${appOrigin}${link.dataset.appPath}`;
   });

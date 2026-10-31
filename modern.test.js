@@ -40,7 +40,7 @@ for (const [original, redesigned] of [['index.html', 'modern.html'], ['capabilit
     test(`${redesigned} runs standalone and preserves navigation on ${host}`, () => {
       const dom = new JSDOM(source, { url: `http://${host}:5173/${redesigned}`, runScripts: 'dangerously' });
       const doc = dom.window.document;
-      const origin = ['localhost', '127.0.0.1', '[::1]'].includes(host) ? 'http://localhost:4200' : 'https://oogiid-ui.vercel.app';
+      const origin = ['localhost', '127.0.0.1', '[::1]'].includes(host) ? 'http://localhost:4200' : 'https://oogiid-ui.onrender.com';
       for (const link of doc.querySelectorAll('[data-app-path]')) assert.equal(link.href, `${origin}${link.dataset.appPath}`);
       const button = doc.querySelector('.menu-toggle');
       button.click();
@@ -71,7 +71,7 @@ for (const [original, redesigned] of [['index.html', 'modern.html'], ['capabilit
     const dom = new JSDOM(source, { url: new URL(redesigned, import.meta.url).href, runScripts: 'dangerously' });
     dom.window.document.querySelector('.menu-toggle').click();
     assert.equal(dom.window.document.querySelector('.menu-toggle').getAttribute('aria-expanded'), 'true');
-    assert.equal(dom.window.document.querySelector('[data-app-path="/signup"]').href, 'https://oogiid-ui.vercel.app/signup');
+    assert.equal(dom.window.document.querySelector('[data-app-path="/signup"]').href, 'https://oogiid-ui.onrender.com/signup');
     dom.window.close();
   });
 }
@@ -97,8 +97,8 @@ for (const [primary, reference] of [['index.html', 'modern.html'], ['capabilitie
         target.window.close();
       }
     }
-    assert.equal(doc.querySelector('[data-app-path="/signup"]').href, 'https://oogiid-ui.vercel.app/signup');
-    assert.equal(doc.querySelector('[data-app-path="/login"]').href, 'https://oogiid-ui.vercel.app/login');
+    assert.equal(doc.querySelector('[data-app-path="/signup"]').href, 'https://oogiid-ui.onrender.com/signup');
+    assert.equal(doc.querySelector('[data-app-path="/login"]').href, 'https://oogiid-ui.onrender.com/login');
     const menu = doc.querySelector('.menu-toggle');
     menu.click(); assert.equal(menu.getAttribute('aria-expanded'), 'true');
     menu.click(); assert.equal(menu.getAttribute('aria-expanded'), 'false');

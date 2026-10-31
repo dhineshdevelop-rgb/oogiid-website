@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 
 
@@ -10,6 +10,18 @@ const startup = new JSDOM(html, { url: 'https://website.example.test' });
 globalThis.document = startup.window.document; globalThis.window = startup.window;
 const { initNavigation, initObservers, initializeWebsite } = await import('./script.js');
 delete globalThis.document; delete globalThis.window;
+test('all website HTML pages link every account action to Render before JavaScript runs', () => {
+  for (const file of readdirSync(new URL('.', import.meta.url)).filter(file => file.endsWith('.html'))) {
+    const dom = new JSDOM(readFileSync(new URL(file, import.meta.url), 'utf8'));
+    const links = [...dom.window.document.querySelectorAll('[data-app-path]')];
+    assert.ok(links.length >= 5, file);
+    for (const link of links) {
+      assert.ok(['/login', '/signup'].includes(link.dataset.appPath), file);
+      assert.equal(link.getAttribute('href'), `https://oogiid-ui.onrender.com${link.dataset.appPath}`, file);
+    }
+    dom.window.close();
+  }
+});
 function fixture(source = html) { return new JSDOM(source, { url: 'https://website.example.test' }); }
 test('navigation handles menu open, close and in-page links; scroll threshold and year', () => {
   const dom = fixture(); const { document: doc } = dom.window;
@@ -69,8 +81,8 @@ test('both website headers expose application signup and login links in the shar
   for (const file of ['index.html', 'capabilities.html']) {
     const dom = new JSDOM(readFileSync(new URL(file, import.meta.url), 'utf8'));
     const nav = dom.window.document.querySelector('#site-nav');
-    assert.equal(nav.querySelector('a[href="https://oogiid-ui.vercel.app/signup"]').textContent, 'Sign up');
-    assert.equal(nav.querySelector('a[href="https://oogiid-ui.vercel.app/login"]').textContent, 'Log in');
+    assert.equal(nav.querySelector('a[href="https://oogiid-ui.onrender.com/signup"]').textContent, 'Sign up');
+    assert.equal(nav.querySelector('a[href="https://oogiid-ui.onrender.com/login"]').textContent, 'Log in');
     dom.window.close();
   }
 });
@@ -78,7 +90,7 @@ test('both website headers expose application signup and login links in the shar
 for (const host of ['localhost', '127.0.0.1', '[::1]', 'website.example.test', 'localhost.example.test']) {
   test(`application links use the correct origin on ${host} for both pages`, () => {
     const origin = ['localhost', '127.0.0.1', '[::1]'].includes(host)
-      ? 'http://localhost:4200' : 'https://oogiid-ui.vercel.app';
+      ? 'http://localhost:4200' : 'https://oogiid-ui.onrender.com';
     for (const source of [html, capabilities]) {
       const dom = new JSDOM(source, { url: `http://${host}:5173` });
       initializeWebsite(dom.window.document, dom.window);

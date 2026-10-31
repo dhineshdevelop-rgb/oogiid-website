@@ -14,7 +14,7 @@ Implementation choices: Gmail SMTP is supported using Spring Boot Mail; Resend r
 
 Update the marketing website typography and button colors for a polished, professional appearance, and connect its enquiry form to the backend. A successful submission must create a new user with a backend-generated random password and email their login details. Existing users must receive a clear message without creating another account or changing their password.
 
-Login URL: **https://oogiid-ui.vercel.app/login**
+Login URL: **https://oogiid-ui.onrender.com/login**
 
 ## Baseline before implementation and dependencies
 
@@ -97,7 +97,7 @@ Welcome to OOGIID. Your account has been created.
 
 Username: [normalized email address]
 Password: [backend-generated random password]
-Login: https://oogiid-ui.vercel.app/login
+Login: https://oogiid-ui.onrender.com/login
 
 Keep your login details confidential.
 
@@ -140,6 +140,6 @@ Follow the mandatory method-level unit-test rules in `../Agent.md`. Every hand-w
 ## 8. Documentation and rollout
 
 - Update website/backend READMEs, backend API documentation, and environment examples with endpoint contract, website API URL, exact origin allowlist, mail settings, encryption-key handling, and delivery recovery steps.
-- The marketing origin and public backend URL are configured as recorded above. Supply the approved sender identity and provider/encryption secrets before rollout. Do not infer the marketing origin from `https://oogiid-ui.vercel.app/login`.
+- The marketing origin and public backend URL are configured as recorded above. Supply the approved sender identity and provider/encryption secrets before rollout. Do not infer the marketing origin from `https://oogiid-ui.onrender.com/login`.
 - Apply migrations and deploy backend configuration before enabling live form submission. Verify allowed-origin submission, duplicate behavior, delivery status, actual email receipt with a controlled account, and login at the specified URL.
 - Completion requires consistent typography and professional button colors on both pages, accessible button states, working backend submission, reliable duplicate handling, backend-only credential generation/email delivery, accurate status messages, and passing required method-level tests. Implementation is present; PostgreSQL-specific verification and production rollout remain outstanding as recorded in the test checklist.
