@@ -1,8 +1,8 @@
 # OOGIID website
 
-## Image-enhanced previews
+## Image-enhanced homepage
 
-Open [index-images.html](index-images.html) or [capabilities-images.html](capabilities-images.html) for separate copies with six industrial photographs in each page's existing capability cards. They link to each other and preserve the original text, design, illustrations, and embedded JavaScript. Existing HTML pages are unchanged. Open directly from disk with this directory's assets present, or serve locally using the command below and visit `/index-images.html`.
+Open [index-images.html](index-images.html) or [capabilities-images.html](capabilities-images.html) for separate copies with six industrial photographs in each page's existing capability cards. They link to each other and preserve the original text, design, illustrations, and embedded JavaScript. The default `index.html` homepage also includes these photographs and links to `capabilities-images.html`. Open directly from disk with this directory's assets present, or serve locally using the command below and visit `/index-images.html`.
 
 Images are stored locally in `assets/industrial/`; [photography sources and license](assets/industrial/README.md) are documented there. The photographs represent capability areas, not OOGIID-owned facilities. `images.test.js` checks content/design parity after removing the image additions, local assets, accessibility attributes, preview links, and standalone behavior. No new application functions were introduced; `script.test.js` retains the method-level unit tests for the unchanged behavior.
 

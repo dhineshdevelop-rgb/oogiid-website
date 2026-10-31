@@ -8,6 +8,10 @@ for (const [original, redesigned] of [['index.html', 'modern.html'], ['capabilit
   const source = readFileSync(new URL(redesigned, import.meta.url), 'utf8');
   test(`${redesigned} preserves content, logo, links and the tested application behavior`, () => {
     const before = new JSDOM(readFileSync(new URL(original, import.meta.url), 'utf8'));
+    before.window.document.querySelector('#industrial-image-styles')?.remove();
+    for (const link of before.window.document.querySelectorAll('a[href]')) {
+      link.setAttribute('href', link.getAttribute('href').replaceAll('capabilities-images.html', 'capabilities.html'));
+    }
     const after = new JSDOM(source);
     const doc = after.window.document;
     assert.equal(doc.querySelector('script').textContent.trim(), behavior.trim());
@@ -77,11 +81,11 @@ for (const [original, redesigned] of [['index.html', 'modern.html'], ['capabilit
 }
 
 
-for (const [primary, reference] of [['index.html', 'modern.html'], ['capabilities.html', 'modern-capabilities.html']]) {
+for (const [primary, reference] of [['index.html', 'index-images.html'], ['capabilities.html', 'modern-capabilities.html']]) {
   test(`${primary} serves the modern design as the primary page with canonical links and working navigation`, () => {
     const source = readFileSync(new URL(primary, import.meta.url), 'utf8');
     const expected = readFileSync(new URL(reference, import.meta.url), 'utf8')
-      .replaceAll('modern-capabilities.html', 'capabilities.html').replaceAll('modern.html', 'index.html');
+      .replaceAll('modern-capabilities.html', 'capabilities.html').replaceAll('modern.html', 'index.html').replaceAll('index-images.html', 'index.html');
     assert.equal(source, expected);
     const dom = new JSDOM(source, { url: `https://dhineshdevelop-rgb.github.io/oogiid-website/${primary}`, runScripts: 'dangerously' });
     const doc = dom.window.document;

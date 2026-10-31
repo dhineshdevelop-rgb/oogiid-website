@@ -7,13 +7,13 @@ const subjects = ['engineering-design', 'precision-machining', 'fabrication', 'a
 const script = readFileSync(new URL('./script.js', import.meta.url), 'utf8').replaceAll('export function ', 'function ').trim();
 
 for (const [original, copy, cards] of [
-  ['index.html', 'index-images.html', '.cap-card'],
+  ['modern.html', 'index-images.html', '.cap-card'],
   ['capabilities.html', 'capabilities-images.html', '.capability-detail'],
 ]) {
   const source = readFileSync(new URL(copy, import.meta.url), 'utf8');
 
   test(`${copy} differs only by photographs, additive image styles, and preview links`, () => {
-    const before = new JSDOM(readFileSync(new URL(original, import.meta.url), 'utf8'));
+    const before = new JSDOM(readFileSync(new URL(original, import.meta.url), 'utf8').replaceAll('modern-capabilities.html', 'capabilities.html').replaceAll('modern.html', 'index.html'));
     const after = new JSDOM(source);
     const doc = after.window.document;
     assert.equal(doc.querySelector('script').textContent.trim(), script);
