@@ -64,10 +64,10 @@ test('observers reveal only intersecting targets and update matching navigation 
   reveal.callback([{ target: reveal.observed[0], isIntersecting: false }]); assert.equal(reveal.unobserved.length, 0);
   reveal.callback([{ target: reveal.observed[0], isIntersecting: true }]);
   assert.ok(reveal.observed[0].classList.contains('visible')); assert.equal(reveal.unobserved[0], reveal.observed[0]);
-  sections.callback([{ target: doc.querySelector('#solutions'), isIntersecting: false }]);
+  sections.callback([{ target: doc.querySelector('#partners'), isIntersecting: false }]);
   assert.equal(links.some(link => link.classList.contains('active')), false);
-  sections.callback([{ target: doc.querySelector('#solutions'), isIntersecting: true }]);
-  assert.equal(links.find(link => link.classList.contains('active')).getAttribute('href'), '#solutions');
+  sections.callback([{ target: doc.querySelector('#partners'), isIntersecting: true }]);
+  assert.equal(links.find(link => link.classList.contains('active')).getAttribute('href'), '#partners');
   assert.ok(sections.observed.length > 0); dom.window.close();
 });
 
@@ -81,8 +81,8 @@ test('both website headers expose application signup and login links in the shar
   for (const file of ['index.html', 'capabilities.html']) {
     const dom = new JSDOM(readFileSync(new URL(file, import.meta.url), 'utf8'));
     const nav = dom.window.document.querySelector('#site-nav');
-    assert.equal(nav.querySelector('a[href="https://oogiid-ui.onrender.com/signup"]').textContent, 'Sign up');
-    assert.equal(nav.querySelector('a[href="https://oogiid-ui.onrender.com/login"]').textContent, 'Log in');
+    assert.equal(nav.querySelector('a[href="https://oogiid-ui.onrender.com/signup"]').textContent.trim(), file === 'index.html' ? 'Share Requirement →' : 'Sign up');
+    assert.equal(nav.querySelector('a[href="https://oogiid-ui.onrender.com/login"]').textContent, file === 'index.html' ? 'Login' : 'Log in');
     dom.window.close();
   }
 });
@@ -91,14 +91,14 @@ for (const host of ['localhost', '127.0.0.1', '[::1]', 'website.example.test', '
   test(`application links use the correct origin on ${host} for both pages`, () => {
     const origin = ['localhost', '127.0.0.1', '[::1]'].includes(host)
       ? 'http://localhost:4200' : 'https://oogiid-ui.onrender.com';
-    for (const source of [html, capabilities]) {
+    for (const [source, loginLabel, signupLabel] of [[html, 'Login', 'Share Requirement →'], [capabilities, 'Log in', 'Sign up']]) {
       const dom = new JSDOM(source, { url: `http://${host}:5173` });
       initializeWebsite(dom.window.document, dom.window);
       const links = [...dom.window.document.querySelectorAll('[data-app-path]')];
       assert.ok(links.length >= 5);
       for (const link of links) assert.equal(link.href, `${origin}${link.dataset.appPath}`);
-      assert.equal(dom.window.document.querySelector('.site-nav [data-app-path="/login"]').textContent, 'Log in');
-      assert.equal(dom.window.document.querySelector('.site-nav [data-app-path="/signup"]').textContent, 'Sign up');
+      assert.equal(dom.window.document.querySelector('.site-nav [data-app-path="/login"]').textContent, loginLabel);
+      assert.equal(dom.window.document.querySelector('.site-nav [data-app-path="/signup"]').textContent.trim(), signupLabel);
       dom.window.close();
     }
   });
@@ -122,13 +122,13 @@ for (const [name, source] of [['homepage', html], ['capabilities', capabilities]
   });
 }
 
-test('every website page uses black text in the light toolbar and white text on the dark footer', () => {
+test('website pages use the appropriate logo for their light or dark footer', () => {
   for (const file of ['index.html', 'capabilities.html', 'modern.html', 'modern-capabilities.html']) {
     const dom = new JSDOM(readFileSync(new URL(file, import.meta.url), 'utf8'));
     const doc = dom.window.document;
-    assert.equal(doc.querySelector('header .brand-logo img').getAttribute('src'), 'app_logo-black-text.png');
-    assert.equal(doc.querySelector('footer .brand-logo img').getAttribute('src'), 'app_logo-white-text.png');
-    for (const img of doc.querySelectorAll('.brand-logo img')) {
+    assert.equal(doc.querySelector('header .brand img').getAttribute('src'), 'app_logo-black-text.png');
+    assert.equal(doc.querySelector('footer .brand img').getAttribute('src'), file === 'index.html' ? 'app_logo-black-text.png' : 'app_logo-white-text.png');
+    for (const img of doc.querySelectorAll('.brand img')) {
       assert.equal(img.width, 2000);
       assert.equal(img.height, 650);
       assert.equal(img.alt, 'OOGIID');

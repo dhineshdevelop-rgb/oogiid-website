@@ -2,9 +2,11 @@
 
 ## Industrial design previews
 
-Open [industrial-home.html](industrial-home.html) and [industrial-capabilities.html](industrial-capabilities.html) for the separate light industrial design. Existing website pages are unchanged. Both previews embed their CSS and the existing tested `script.js` behavior and work directly from disk with the adjacent logo, fonts and `assets/industrial/` directory.
+Open [industrial-home.html](industrial-home.html) and [industrial-capabilities.html](industrial-capabilities.html) for the light industrial design. The primary `index.html` homepage is synchronized with `industrial-home.html`; the older design variants remain available. Both previews embed their CSS and the existing tested `script.js` behavior and work directly from disk with the adjacent logo, fonts and `assets/industrial/` directory.
 
-To preview over HTTP, run `python3 -m http.server 5173` from this directory, then visit `http://localhost:5173/industrial-home.html` or `http://localhost:5173/industrial-capabilities.html`. These files are local previews and have not been published.
+To preview over HTTP, run `python3 -m http.server 5173` from this directory, then visit `http://localhost:5173/industrial-home.html` or `http://localhost:5173/industrial-capabilities.html`. The photography refresh is available locally; publication is a separate step.
+
+The homepage has 15 distinct photographs and the capabilities page has seven additional photographs, with no shared original between the two logical pages. Six suitable photographs were retained in exclusive placements and 16 new images were added. Alternate filenames or crops do not count as unique originals. `assets/industrial/photo-manifest.json` records source IDs, attribution, dimensions, placement, focal points and file checksums. `industrial.test.js` verifies all 22 assignments, unique sources and hashes, actual JPEG dimensions, image loading attributes, alt text and exact primary-homepage/preview parity.
 
 The design uses a photographic factory hero, five benefits, six linked capability cards, a six-step journey, customer/partner panels and six detailed capability sections. All previous technical offerings are retained under the new categories. Requirement and partner buttons lead to existing signup; login and localhost routing retain the current behavior. No enquiry form, live tracking or API was added. Photographs are representative stock images, not OOGIID facilities; sources and licenses are in [the photography notes](assets/industrial/README.md).
 
@@ -14,7 +16,7 @@ Chrome verification covered both previews at 1440, 1024, 768 and 390 pixels: loc
 
 ## Image-enhanced homepage
 
-Open [index-images.html](index-images.html) or [capabilities-images.html](capabilities-images.html) for separate copies with six industrial photographs in each page's existing capability cards. They link to each other and preserve the original text, design, illustrations, and embedded JavaScript. The default `index.html` homepage also includes these photographs and links to `capabilities-images.html`. Open directly from disk with this directory's assets present, or serve locally using the command below and visit `/index-images.html`.
+Open [index-images.html](index-images.html) or [capabilities-images.html](capabilities-images.html) for separate copies with six industrial photographs in each page's existing capability cards. They link to each other and preserve the original text, design, illustrations, and embedded JavaScript. These earlier variants retain their original photographs; the default `index.html` now uses the industrial design described above. Open directly from disk with this directory's assets present, or serve locally using the command below and visit `/index-images.html`.
 
 Images are stored locally in `assets/industrial/`; [photography sources and license](assets/industrial/README.md) are documented there. The photographs represent capability areas, not OOGIID-owned facilities. `images.test.js` checks content/design parity after removing the image additions, local assets, accessibility attributes, preview links, and standalone behavior. No new application functions were introduced; `script.test.js` retains the method-level unit tests for the unchanged behavior.
 
@@ -31,7 +33,7 @@ npm run check
 python3 -m http.server 5173
 ```
 
-Open `http://localhost:5173`. The root URL serves the modern design through `index.html`. The homepage and capabilities page also work directly from disk with their embedded scripts. `npm test` runs isolated Node tests with jsdom and coverage; it does not contact the API or send email.
+Open `http://localhost:5173`. The root URL serves the industrial design through `index.html`. The homepage and capabilities page also work directly from disk with their embedded scripts. `npm test` runs isolated Node tests with jsdom and coverage; it does not contact the API or send email.
 
 ## Account navigation
 
@@ -47,17 +49,17 @@ The earlier [registration implementation plan](WEBSITE_REGISTRATION_IMPLEMENTATI
 
 `script.test.js` covers all remaining application functions: `initNavigation` (account URL routing, menu open/close and link callbacks, scroll threshold, year, absent optional elements), `initObservers` (fallback, reveal callback and unobserve, delays, active-section callback), and `initializeWebsite` (both pages and browser startup). Flow regression tests verify signup/login entry points and removal of enquiry controls and contact links.
 
-## Primary modern design
+## Earlier modern design
 
-The redesign uses an ivory, cobalt, apricot and lavender editorial style with a centered serif hero, wide component illustration, asymmetric capability cards and pill-shaped actions. The modern design is the primary website: `index.html` serves the homepage at the root URL, and `capabilities.html` serves the matching capabilities page. Navigation and footer links use these primary filenames. Both pages retain the existing content, app logo, account routing, mobile menu, scroll navigation, and reveal behavior. `modern.html` and `modern-capabilities.html` remain available as standalone design references.
+The redesign uses an ivory, cobalt, apricot and lavender editorial style with a centered serif hero, wide component illustration, asymmetric capability cards and pill-shaped actions. The standalone `modern.html` and `modern-capabilities.html` preserve this earlier design; `capabilities.html` is its legacy capabilities copy. The current homepage uses the industrial design. Both pages retain the existing content, app logo, account routing, mobile menu, scroll navigation, and reveal behavior. `modern.html` and `modern-capabilities.html` remain available as standalone design references.
 
 Each HTML file embeds its CSS and the existing JavaScript so it can also be opened directly from disk. Keep the files alongside `app_logo-black-text.png`, `app_logo-white-text.png`, and `fonts/` for branding and the self-hosted font. The primary HTTP preview is available at `http://localhost:5173/` using the server command above. Account links use the local Angular app on localhost and the production app when opened from disk or another host.
 
-Validation: `modern.test.js` verifies that both primary pages use the modern design and canonical navigation links, then checks the standalone reference pages, content and link parity, section targets, brand assets, local/production account destinations, menu state and labels, scroll thresholds, reveal fallback, and disk startup. It asserts that the embedded script exactly matches `script.js` with module exports removed. Method-to-test checklist: `initNavigation` and its menu/link/scroll callbacks, `initObservers` and its reveal/section callbacks, and `initializeWebsite` retain the isolated unit cases in `script.test.js`; standalone initialization and navigation additionally run in `modern.test.js`. No new application functions were introduced. Browser rendering and live account services are not covered by these Node tests.
+Validation: `modern.test.js` verifies the earlier standalone variants and legacy capabilities source parity, then checks the standalone reference pages, content and link parity, section targets, brand assets, local/production account destinations, menu state and labels, scroll thresholds, reveal fallback, and disk startup. It asserts that the embedded script exactly matches `script.js` with module exports removed. Method-to-test checklist: `initNavigation` and its menu/link/scroll callbacks, `initObservers` and its reveal/section callbacks, and `initializeWebsite` retain the isolated unit cases in `script.test.js`; standalone initialization and navigation additionally run in `modern.test.js`. No new application functions were introduced. Browser rendering and live account services are not covered by these Node tests.
 
 ## Transparent horizontal logos
 
 - `app_logo-white-text.png`: green symbol with white “Oogiid Ex” and “From Engineering to Execution.” text; use on dark backgrounds.
 - `app_logo-black-text.png`: the matching logo with black name and tagline; use on light backgrounds.
 
-Both PNGs are 2000 × 650 with transparent backgrounds. The standalone green symbol remains in `app_logo-symbol.png`. All four website pages use the black-text lockup in a light top toolbar and the white-text lockup in the dark footer. Responsive logo containers preserve image proportions.
+Both PNGs are 2000 × 650 with transparent backgrounds. The standalone green symbol remains in `app_logo-symbol.png`. Earlier modern variants use the black-text lockup in a light toolbar and the white-text lockup in a dark footer. Current industrial pages use the black-text lockup in both their light toolbar and light footer. Responsive logo containers preserve image proportions.

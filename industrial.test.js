@@ -2,11 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { Script } from 'node:vm';
+import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 
 const behavior = readFileSync(new URL('./script.js', import.meta.url), 'utf8').replaceAll('export function ', 'function ');
 const pages = ['industrial-home.html', 'industrial-capabilities.html'];
-for (const page of pages) {
+for (const page of [...pages, 'index.html']) {
   const source = readFileSync(new URL(page, import.meta.url), 'utf8');
   test(`${page}: standalone markup, local assets and links are valid without JavaScript`, () => {
     const dom = new JSDOM(source);
@@ -99,4 +100,72 @@ test('industrial previews expose six matching capabilities, six journey steps, a
   const offerings = [...detail.window.document.querySelectorAll('.offering-list li')].map(element => element.textContent);
   for (const item of original.window.document.querySelectorAll('.capability-detail li')) assert.ok(offerings.includes(item.textContent), item.textContent);
   for (const dom of [home, detail, original]) dom.window.close();
+});
+
+test('primary homepage is synchronized with the industrial preview', () => {
+  assert.equal(readFileSync(new URL('index.html', import.meta.url), 'utf8'), readFileSync(new URL('industrial-home.html', import.meta.url), 'utf8'));
+});
+
+test('22 photo placements have distinct source originals, verified assets and accurate metadata', () => {
+  const manifest = JSON.parse(readFileSync(new URL('assets/industrial/photo-manifest.json', import.meta.url), 'utf8'));
+  assert.equal(manifest.length, 22);
+  for (const key of ['sourceId', 'file', 'placement', 'sha256']) assert.equal(new Set(manifest.map(photo => photo[key])).size, 22, `${key} must be unique`);
+  for (const [page, group, count] of [['industrial-home.html', 'home', 15], ['industrial-capabilities.html', 'capabilities', 7]]) {
+    const dom = new JSDOM(readFileSync(new URL(page, import.meta.url), 'utf8'));
+    const doc = dom.window.document;
+    const photos = [...doc.querySelectorAll('main img')];
+    assert.equal(photos.length, count);
+    const entries = manifest.filter(photo => photo.placement.startsWith(`${group}.`));
+    assert.equal(entries.length, count);
+    assert.equal(new Set(photos.map(photo => photo.getAttribute('src'))).size, count);
+    for (const entry of entries) {
+      let selector = '.hero-photo';
+      const placement = entry.placement.split('.')[1];
+      if (placement.startsWith('capability-')) {
+        const number = Number(placement.split('-')[1]);
+        selector = group === 'home' ? `.cap-card:nth-child(${number}) img` : `#capability-${number} img`;
+      } else if (placement.startsWith('step-')) {
+        selector = `.step:nth-child(${Number(placement.split('-')[1])}) img`;
+      } else if (placement === 'customers' || placement === 'partners') {
+        selector = `#${placement} > img`;
+      }
+      const img = doc.querySelector(selector);
+      assert.ok(img, entry.placement);
+      assert.equal(img.getAttribute('src'), entry.file, entry.placement);
+      assert.equal(img.alt, entry.alt);
+      assert.equal(img.width, entry.width);
+      assert.equal(img.height, entry.height);
+      assert.equal(img.style.objectPosition, entry.objectPosition);
+      assert.equal(entry.license, 'Pexels License');
+      assert.equal(entry.licenseUrl, 'https://www.pexels.com/license/');
+      assert.ok(entry.sourceUrl.endsWith(`-${entry.sourceId}/`));
+      assert.ok(entry.photographer.length > 0);
+      if (placement === 'hero') {
+        assert.notEqual(img.getAttribute('loading'), 'lazy');
+        assert.equal(img.getAttribute('fetchpriority'), 'high');
+      } else {
+        assert.equal(img.getAttribute('loading'), 'lazy');
+        assert.equal(img.getAttribute('decoding'), 'async');
+      }
+      const bytes = readFileSync(new URL(entry.file, import.meta.url));
+      assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256);
+      assert.equal(bytes.readUInt16BE(0), 0xffd8);
+      assert.ok(bytes.length > 10000 && bytes.length < 650000, entry.file);
+      // Read the JPEG frame header to verify intrinsic dimensions without a decoder or network.
+      let offset = 2;
+      let dimensions;
+      while (offset < bytes.length) {
+        assert.equal(bytes[offset], 0xff);
+        const marker = bytes[offset + 1];
+        const length = bytes.readUInt16BE(offset + 2);
+        if ([0xc0, 0xc1, 0xc2].includes(marker)) {
+          dimensions = [bytes.readUInt16BE(offset + 7), bytes.readUInt16BE(offset + 5)];
+          break;
+        }
+        offset += length + 2;
+      }
+      assert.deepEqual(dimensions, [entry.width, entry.height], entry.file);
+    }
+    dom.window.close();
+  }
 });

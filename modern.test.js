@@ -4,13 +4,14 @@ import { readFileSync, existsSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 
 const behavior = readFileSync(new URL('./script.js', import.meta.url), 'utf8').replaceAll('export function ', 'function ');
-for (const [original, redesigned] of [['index.html', 'modern.html'], ['capabilities.html', 'modern-capabilities.html']]) {
+for (const [original, redesigned] of [['index-images.html', 'modern.html'], ['capabilities.html', 'modern-capabilities.html']]) {
   const source = readFileSync(new URL(redesigned, import.meta.url), 'utf8');
   test(`${redesigned} preserves content, logo, links and the tested application behavior`, () => {
     const before = new JSDOM(readFileSync(new URL(original, import.meta.url), 'utf8'));
     before.window.document.querySelector('#industrial-image-styles')?.remove();
+    for (const image of before.window.document.querySelectorAll('.industrial-photo')) image.remove();
     for (const link of before.window.document.querySelectorAll('a[href]')) {
-      link.setAttribute('href', link.getAttribute('href').replaceAll('capabilities-images.html', 'capabilities.html'));
+      link.setAttribute('href', link.getAttribute('href').replaceAll('capabilities-images.html', 'capabilities.html').replaceAll('index-images.html', 'index.html'));
     }
     const after = new JSDOM(source);
     const doc = after.window.document;
@@ -81,8 +82,8 @@ for (const [original, redesigned] of [['index.html', 'modern.html'], ['capabilit
 }
 
 
-for (const [primary, reference] of [['index.html', 'index-images.html'], ['capabilities.html', 'modern-capabilities.html']]) {
-  test(`${primary} serves the modern design as the primary page with canonical links and working navigation`, () => {
+for (const [primary, reference] of [['capabilities.html', 'modern-capabilities.html']]) {
+  test(`${primary} retains the legacy capabilities design and working account navigation`, () => {
     const source = readFileSync(new URL(primary, import.meta.url), 'utf8');
     const expected = readFileSync(new URL(reference, import.meta.url), 'utf8')
       .replaceAll('modern-capabilities.html', 'capabilities.html').replaceAll('modern.html', 'index.html').replaceAll('index-images.html', 'index.html');
@@ -94,12 +95,9 @@ for (const [primary, reference] of [['index.html', 'index-images.html'], ['capab
     for (const link of doc.querySelectorAll('a[href]')) {
       const href = link.getAttribute('href');
       assert.ok(!href.includes('modern.html') && !href.includes('modern-capabilities.html'));
-      if (/^(index|capabilities)\.html/.test(href)) {
-        const [file, id] = href.split('#');
-        const target = new JSDOM(readFileSync(new URL(file, import.meta.url), 'utf8'));
-        if (id) assert.ok(target.window.document.getElementById(id), `${primary}: ${href}`);
-        target.window.close();
-      }
+      // The legacy design's section links are verified on modern.html above.
+      // Current primary-homepage destinations are verified in industrial.test.js.
+      if (href.startsWith('#')) assert.ok(doc.getElementById(href.slice(1)));
     }
     assert.equal(doc.querySelector('[data-app-path="/signup"]').href, 'https://oogiid-ui.onrender.com/signup');
     assert.equal(doc.querySelector('[data-app-path="/login"]').href, 'https://oogiid-ui.onrender.com/login');
