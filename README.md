@@ -1,5 +1,17 @@
 # OOGIID website
 
+## Industrial design previews
+
+Open [industrial-home.html](industrial-home.html) and [industrial-capabilities.html](industrial-capabilities.html) for the separate light industrial design. Existing website pages are unchanged. Both previews embed their CSS and the existing tested `script.js` behavior and work directly from disk with the adjacent logo, fonts and `assets/industrial/` directory.
+
+To preview over HTTP, run `python3 -m http.server 5173` from this directory, then visit `http://localhost:5173/industrial-home.html` or `http://localhost:5173/industrial-capabilities.html`. These files are local previews and have not been published.
+
+The design uses a photographic factory hero, five benefits, six linked capability cards, a six-step journey, customer/partner panels and six detailed capability sections. All previous technical offerings are retained under the new categories. Requirement and partner buttons lead to existing signup; login and localhost routing retain the current behavior. No enquiry form, live tracking or API was added. Photographs are representative stock images, not OOGIID facilities; sources and licenses are in [the photography notes](assets/industrial/README.md).
+
+Validation: `industrial.test.js` checks standalone script equality and syntax, account routing on localhost/hosted/disk URLs, menu state, anchor closing, scroll thresholds, deterministic year, observer fallback, local image assets, heading/ID/link integrity, six matching capability destinations, six workflow steps, and retention of every existing technical offering. Method-to-test checklist: no new application functions were introduced; `initNavigation`, its account/menu/link/scroll callbacks and private `setMenu`, `initObservers` and its observer callbacks, and `initializeWebsite` retain their focused unit coverage in `script.test.js`. The industrial tests additionally execute the embedded behavior on both new pages. Run `npm test` and `npm run check`.
+
+Chrome verification covered both previews at 1440, 1024, 768 and 390 pixels: local images loaded, no horizontal overflow or JavaScript errors, and mobile menu open/close passed. Both previews also expose navigation and content with JavaScript disabled at 390 pixels. Screenshots were reviewed for image crops and text placement. Existing application behavior has 100% reported statement, branch and function coverage; live signup/login services were not exercised.
+
 ## Image-enhanced homepage
 
 Open [index-images.html](index-images.html) or [capabilities-images.html](capabilities-images.html) for separate copies with six industrial photographs in each page's existing capability cards. They link to each other and preserve the original text, design, illustrations, and embedded JavaScript. The default `index.html` homepage also includes these photographs and links to `capabilities-images.html`. Open directly from disk with this directory's assets present, or serve locally using the command below and visit `/index-images.html`.

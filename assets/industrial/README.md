@@ -14,3 +14,15 @@ All six photographs are provided under the [Pexels License](https://www.pexels.c
 | `supply-chain.jpg` | Tima Miroshnichenko | [Warehouse parcel inspection, photo 6170405](https://www.pexels.com/photo/a-man-inspecting-parcels-on-a-shelves-6170405/) |
 
 Downloaded from `https://images.pexels.com/photos/{photo-id}/pexels-photo-{photo-id}.jpeg?auto=compress&cs=tinysrgb&w=1200&h=750&fit=crop`. The assembly photo additionally uses `&crop=bottom` to keep the work in view. All files are 1200 × 750 JPEGs; the pages use local paths and require no remote image service.
+
+## Industrial preview additions
+
+Sources and the [Pexels License](https://www.pexels.com/license/) checked November 11, 2026. These are representative stock photographs, with no implied affiliation or endorsement by the photographers, people or companies depicted.
+
+| Local file | Photographer | Original photograph | Dimensions |
+| --- | --- | --- | --- |
+| `automated-factory.jpg` | Hyundai Motor Group | [Assembling machines in factory, 19233057](https://www.pexels.com/photo/assembling-machines-in-factory-19233057/) | 1800 × 1000 |
+| `robotic-factory.jpg` | Hoang NC | [Welding with robots, 15888223](https://www.pexels.com/photo/men-in-protective-uniform-welding-with-robot-in-workshop-15888223/) | 1800 × 1000 |
+| `prototyping.jpg` | Jakub Zerdzicki | [3D printer in modern workspace, 30275792](https://www.pexels.com/photo/3d-printer-in-modern-workspace-30275792/) | 1200 × 750 |
+
+Downloaded using the same Pexels image URL pattern above, with the dimensions shown in this table. Compressed JPEGs are stored locally; no remote image calls are needed to view the previews.
