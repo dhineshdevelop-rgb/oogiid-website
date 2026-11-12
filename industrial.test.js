@@ -33,7 +33,7 @@ for (const page of [...pages, 'index.html']) {
         assert.equal(href, `https://oogiid-ui.onrender.com${link.dataset.appPath}`);
       } else {
         const [file, fragment] = href.split('#');
-        assert.ok(!file || pages.includes(file), href);
+        assert.ok(!file || [...pages, 'industrial-home-updated.html', 'industrial-capabilities-updated.html'].includes(file), href);
         const target = file ? new JSDOM(readFileSync(new URL(file, import.meta.url), 'utf8')) : dom;
         if (fragment) assert.ok(target.window.document.getElementById(fragment), href);
         if (target !== dom) target.window.close();
@@ -102,8 +102,8 @@ test('industrial previews expose six matching capabilities, six journey steps, a
   for (const dom of [home, detail, original]) dom.window.close();
 });
 
-test('primary homepage is synchronized with the industrial preview', () => {
-  assert.equal(readFileSync(new URL('index.html', import.meta.url), 'utf8'), readFileSync(new URL('industrial-home.html', import.meta.url), 'utf8'));
+test('primary homepage is synchronized with the updated industrial preview', () => {
+  assert.equal(readFileSync(new URL('index.html', import.meta.url), 'utf8'), readFileSync(new URL('industrial-home-updated.html', import.meta.url), 'utf8'));
 });
 
 test('22 photo placements have distinct source originals, verified assets and accurate metadata', () => {

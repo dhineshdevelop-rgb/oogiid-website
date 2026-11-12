@@ -1,8 +1,18 @@
 # OOGIID website
 
+## Updated positioning previews
+
+Open [industrial-home-updated.html](industrial-home-updated.html) and [industrial-capabilities-updated.html](industrial-capabilities-updated.html) for the separate content-update previews. The primary `index.html` now matches the updated homepage; earlier standalone design pages are retained. The previews link to each other and distinguish OOGIID’s engineering capability, validated manufacturing partner network and execution coordination. The homepage includes the supplied About, Vision, Mission and Philosophy copy in full.
+
+Both files embed their CSS and the existing tested JavaScript. Open them directly with the adjacent assets present, or run `python3 -m http.server 5173` from this directory and visit `http://localhost:5173/industrial-home-updated.html`. They retain the existing signup/login destinations and localhost routing. The standalone previews remain available alongside the primary homepage. Publication is managed separately.
+
+`updated.test.js` checks the complete company story, role positioning, technical offerings, cross-page links, asset retention and standalone behavior. No application functions were added or modified: `initNavigation`, its account/menu/link/scroll callbacks and private `setMenu`, `initObservers` and its observer callbacks, and `initializeWebsite` retain their unit cases in `script.test.js`. Preview tests also check embedded-script equality and execute navigation on disk, localhost and hosted URLs. Run `npm test` and `npm run check`.
+
+Validation for the updated previews: all 66 Node tests and `npm run check` passed. Headless Chrome checks covered both pages at 1440, 768 and 390 pixels with no horizontal overflow, missing images or JavaScript exceptions; mobile menu open/close passed. Screenshots were reviewed for company-story readability and responsive spacing. Existing application functions retain 100% reported line, branch and function coverage. Live account services were not exercised.
+
 ## Industrial design previews
 
-Open [industrial-home.html](industrial-home.html) and [industrial-capabilities.html](industrial-capabilities.html) for the light industrial design. The primary `index.html` homepage is synchronized with `industrial-home.html`; the older design variants remain available. Both previews embed their CSS and the existing tested `script.js` behavior and work directly from disk with the adjacent logo, fonts and `assets/industrial/` directory.
+Open [industrial-home.html](industrial-home.html) and [industrial-capabilities.html](industrial-capabilities.html) for the light industrial design. The primary `index.html` homepage is synchronized with `industrial-home-updated.html`; the older design variants remain available. Both previews embed their CSS and the existing tested `script.js` behavior and work directly from disk with the adjacent logo, fonts and `assets/industrial/` directory.
 
 To preview over HTTP, run `python3 -m http.server 5173` from this directory, then visit `http://localhost:5173/industrial-home.html` or `http://localhost:5173/industrial-capabilities.html`. The photography refresh is available locally; publication is a separate step.
 
@@ -33,7 +43,7 @@ npm run check
 python3 -m http.server 5173
 ```
 
-Open `http://localhost:5173`. The root URL serves the industrial design through `index.html`. The homepage and capabilities page also work directly from disk with their embedded scripts. `npm test` runs isolated Node tests with jsdom and coverage; it does not contact the API or send email.
+Open `http://localhost:5173`. The root URL serves the updated positioning homepage through `index.html`. The homepage and capabilities page also work directly from disk with their embedded scripts. `npm test` runs isolated Node tests with jsdom and coverage; it does not contact the API or send email.
 
 ## Account navigation
 
