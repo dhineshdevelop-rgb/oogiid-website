@@ -28,6 +28,7 @@ for (const page of [...pages, 'index.html']) {
     assert.equal(doc.querySelector('.hero-photo').getAttribute('fetchpriority'), 'high');
     for (const link of doc.querySelectorAll('a[href]')) {
       const href = link.getAttribute('href');
+      if (/^(mailto:|tel:|https:\/\/wa\.me\/)/.test(href)) continue;
       assert.notEqual(href, '#');
       if (link.hasAttribute('data-app-path')) {
         assert.equal(href, `https://oogiid-ui.onrender.com${link.dataset.appPath}`);

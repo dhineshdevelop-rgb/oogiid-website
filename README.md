@@ -1,5 +1,15 @@
 # OOGIID website
 
+## Contact Us and WhatsApp
+
+The current homepage (`index.html`) and matching `industrial-home-updated.html` preview include a Contact Us section with email, phone and office details from page 1 of the supplied Oogiid company profile. Header and footer links on these pages and `industrial-capabilities-updated.html` reach that section.
+
+Email: **oogiid.ex@gmail.com**. Phone numbers: **+91 9600112025** and **+91 9282209694**. Registered office: No.2/380, Vignesh Nagar, Ashok Leyland 2nd plant Opp, Thorapalli Agraharam, Hosur–635109. Branch office: No.3, Sakthi Nagar, Keelkattalai, Chennai–600117.
+
+All three current pages include a fixed bottom-right WhatsApp shortcut to `https://wa.me/919600112025`, using the user-selected first phone number. It uses a native link, works without JavaScript, opens in a new tab, and includes a keyboard focus indicator, accessible name and mobile safe-area spacing. Email and phone links open the visitor’s configured applications. There is no contact form or API submission. Historical design variants are unchanged.
+
+`contact.test.js` covers the contact details, link destinations, new-tab protection, accessible icon, fixed sizing/positioning, safe-area styling and mobile menu contact behavior. No application functions were added or modified; all existing functions and callbacks retain their focused unit cases in `script.test.js`, with 100% reported function, line and branch coverage. All 74 tests and `npm run check` passed; `git diff --check` passed. Browser layout, scrolling, keyboard and overlap checks remain unverified: the installed headless Chrome exited before starting in this environment. Opening a live WhatsApp conversation and deployment were not performed.
+
 ## Updated positioning previews
 
 Open [industrial-home-updated.html](industrial-home-updated.html) and [industrial-capabilities-updated.html](industrial-capabilities-updated.html) for the separate content-update previews. The primary `index.html` now matches the updated homepage; earlier standalone design pages are retained. The previews link to each other and distinguish OOGIID’s engineering capability, validated manufacturing partner network and execution coordination. The homepage includes the supplied About, Vision, Mission and Philosophy copy in full.
@@ -57,7 +67,7 @@ The earlier [registration implementation plan](WEBSITE_REGISTRATION_IMPLEMENTATI
 
 ## Method coverage
 
-`script.test.js` covers all remaining application functions: `initNavigation` (account URL routing, menu open/close and link callbacks, scroll threshold, year, absent optional elements), `initObservers` (fallback, reveal callback and unobserve, delays, active-section callback), and `initializeWebsite` (both pages and browser startup). Flow regression tests verify signup/login entry points and removal of enquiry controls and contact links.
+`script.test.js` covers all remaining application functions: `initNavigation` (account URL routing, menu open/close and link callbacks, scroll threshold, year, absent optional elements), `initObservers` (fallback, reveal callback and unobserve, delays, active-section callback), and `initializeWebsite` (both pages and browser startup). Flow regression tests verify signup/login entry points and removal of enquiry controls; contact links are covered separately in `contact.test.js`.
 
 ## Earlier modern design
 

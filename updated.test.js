@@ -33,6 +33,7 @@ for (const page of pages) {
     for (const img of doc.images) assert.ok(existsSync(new URL(img.getAttribute('src'), import.meta.url)));
     for (const link of doc.querySelectorAll('a[href]')) {
       const href = link.getAttribute('href');
+      if (/^(mailto:|tel:|https:\/\/wa\.me\/)/.test(href)) continue;
       if (link.hasAttribute('data-app-path')) {
         assert.equal(href, `https://oogiid-ui.onrender.com${link.dataset.appPath}`);
         continue;

@@ -108,14 +108,13 @@ for (const [name, source] of [['homepage', html], ['capabilities', capabilities]
   test(`${name} offers account actions without a project or enquiry form`, () => {
     const dom = fixture(source); const doc = dom.window.document;
     initializeWebsite(doc, dom.window);
-    assert.equal(doc.querySelector('form, input, textarea, select, [data-inquiry], [data-inquiry-choice], #contact'), null);
+    assert.equal(doc.querySelector('form, input, textarea, select, [data-inquiry], [data-inquiry-choice]'), null);
     assert.doesNotMatch(doc.body.textContent, /start a project|upload a drawing|submit enquiry|login details will be emailed/i);
     assert.ok(doc.querySelector('main [data-app-path="/signup"]'));
     assert.ok(doc.querySelector('footer [data-app-path="/login"]'));
     assert.ok(doc.querySelector('footer [data-app-path="/signup"]'));
     for (const link of doc.querySelectorAll('a[href]')) {
       const url = new URL(link.getAttribute('href'), 'https://website.example.test/');
-      assert.notEqual(url.hash, '#contact');
       if (link.getAttribute('href').startsWith('#')) assert.ok(doc.querySelector(url.hash));
     }
     dom.window.close();
