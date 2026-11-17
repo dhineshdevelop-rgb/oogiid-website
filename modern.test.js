@@ -35,8 +35,11 @@ for (const [original, redesigned] of [['index-images.html', 'modern.html'], ['ca
       }
     }
     for (const img of doc.images) {
-      assert.equal(img.getAttribute('src'), img.closest('header') ? 'app_logo-black-text.png' : 'app_logo-white-text.png');
-      assert.equal(img.alt, 'OOGIID');
+      const variant = img.closest('header') ? 'black' : 'white';
+      const symbol = img.classList.contains('brand-symbol');
+      assert.equal(img.getAttribute('src'), `app_logo-${variant}-${symbol ? 'symbol' : 'wordmark'}.png`);
+      assert.equal(img.alt, symbol ? '' : 'OOGIID');
+      if (symbol) assert.equal(img.getAttribute('aria-hidden'), 'true');
       assert.ok(existsSync(new URL(img.getAttribute('src'), import.meta.url)));
     }
     before.window.close(); after.window.close();

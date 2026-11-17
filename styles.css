@@ -2626,14 +2626,13 @@ a:focus-visible, button:focus-visible { outline: 3px solid #1769ff; outline-offs
 .site-header .menu-toggle span { background: #232642; }
 .brand-logo, .site-header .brand-logo, footer .brand-logo, .footer-top .brand-logo {
     position: relative; display: block; width: 232px; height: 88px;
-    flex-shrink: 0; padding: 0; border-radius: 0; background: transparent; overflow: hidden;
+    flex-shrink: 0; padding: 0; border-radius: 0; background: transparent;
 }
 .brand-logo img {
-    position: absolute; left: -6px; top: 50%; transform: translateY(-50%);
-    display: block; width: 310px; height: auto; max-width: none; object-fit: contain;
+    display: block; width: 232px; height: auto; max-width: none; object-fit: contain;
 }
 footer .brand-logo, .footer-top .brand-logo { width: 260px; height: 110px; }
-footer .brand-logo img { width: 360px; }
+footer .brand-logo img { width: 260px; }
 @media (min-width: 761px) and (max-width: 1150px) {
     .site-header .site-nav { flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 255px); gap: 8px 12px; }
 }
@@ -2641,5 +2640,70 @@ footer .brand-logo img { width: 360px; }
     .site-header .site-nav { background: #fff; }
     .site-header .site-nav>a:not(.button) { border-bottom-color: #e2e5eb; }
     .site-header .brand-logo { width: 185px; height: 80px; }
-    .site-header .brand-logo img { width: 260px; }
+    .site-header .brand-logo img { width: 185px; }
+}
+
+/* Split logo artwork: smaller symbol with unchanged wordmark pixel sizes. */
+.site-header .brand, footer .brand, .footer-top .brand {
+    --logo-symbol-width: 74.559633px;
+    --logo-wordmark-width: 126.633028px;
+    --logo-gap: 5.522936px;
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: var(--logo-gap);
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    aspect-ratio: auto;
+    padding: 0;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+}
+.site-header .brand { align-self: center; }
+.site-header .brand img, footer .brand img {
+    position: static;
+    display: block;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    max-width: none;
+    left: auto;
+    top: auto;
+    transform: none;
+    object-fit: contain;
+}
+.site-header .brand .brand-symbol, footer .brand .brand-symbol { width: var(--logo-symbol-width); }
+.site-header .brand .brand-wordmark, footer .brand .brand-wordmark { width: var(--logo-wordmark-width); }
+.site-header .brand-logo {
+    --logo-symbol-width: 80.455046px;
+    --logo-wordmark-width: 136.645872px;
+    --logo-gap: 5.959633px;
+}
+footer .brand[data-logo-variant="white"] {
+    --logo-symbol-width: 78.155070px;
+    --logo-wordmark-width: 165.924453px;
+    --logo-gap: 7.236581px;
+}
+@media (max-width: 1200px) {
+    .site-header .brand:not(.brand-logo), footer .brand:not(.brand-logo) {
+        --logo-symbol-width: 62.422018px;
+        --logo-wordmark-width: 106.018349px;
+        --logo-gap: 4.623853px;
+    }
+}
+@media (max-width: 760px) {
+    .site-header .brand-logo {
+        --logo-symbol-width: 64.155963px;
+        --logo-wordmark-width: 108.963303px;
+        --logo-gap: 4.752294px;
+    }
+}
+@media (max-width: 650px) {
+    .site-header .brand:not(.brand-logo), footer .brand:not(.brand-logo) {
+        --logo-symbol-width: 60.688073px;
+        --logo-wordmark-width: 103.073394px;
+        --logo-gap: 4.495413px;
+    }
 }

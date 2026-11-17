@@ -2637,14 +2637,13 @@ body{background:var(--paper);color:var(--ink)}::selection{background:#f4c5a8;col
 .site-header .menu-toggle span { background: #232642; }
 .brand-logo, .site-header .brand-logo, footer .brand-logo, .footer-top .brand-logo {
     position: relative; display: block; width: 232px; height: 88px;
-    flex-shrink: 0; padding: 0; border-radius: 0; background: transparent; overflow: hidden;
+    flex-shrink: 0; padding: 0; border-radius: 0; background: transparent;
 }
 .brand-logo img {
-    position: absolute; left: -6px; top: 50%; transform: translateY(-50%);
-    display: block; width: 310px; height: auto; max-width: none; object-fit: contain;
+    display: block; width: 232px; height: auto; max-width: none; object-fit: contain;
 }
 footer .brand-logo, .footer-top .brand-logo { width: 260px; height: 110px; }
-footer .brand-logo img { width: 360px; }
+footer .brand-logo img { width: 260px; }
 @media (min-width: 761px) and (max-width: 1150px) {
     .site-header .site-nav { flex-wrap: wrap; justify-content: flex-end; max-width: calc(100% - 255px); gap: 8px 12px; }
 }
@@ -2652,12 +2651,77 @@ footer .brand-logo img { width: 360px; }
     .site-header .site-nav { background: #fff; }
     .site-header .site-nav>a:not(.button) { border-bottom-color: #e2e5eb; }
     .site-header .brand-logo { width: 185px; height: 80px; }
-    .site-header .brand-logo img { width: 260px; }
+    .site-header .brand-logo img { width: 185px; }
+}
+
+/* Split logo artwork: smaller symbol with unchanged wordmark pixel sizes. */
+.site-header .brand, footer .brand, .footer-top .brand {
+    --logo-symbol-width: 74.559633px;
+    --logo-wordmark-width: 126.633028px;
+    --logo-gap: 5.522936px;
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: var(--logo-gap);
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    aspect-ratio: auto;
+    padding: 0;
+    overflow: visible;
+    border-radius: 0;
+    background: transparent;
+}
+.site-header .brand { align-self: center; }
+.site-header .brand img, footer .brand img {
+    position: static;
+    display: block;
+    flex: 0 0 auto;
+    width: auto;
+    height: auto;
+    max-width: none;
+    left: auto;
+    top: auto;
+    transform: none;
+    object-fit: contain;
+}
+.site-header .brand .brand-symbol, footer .brand .brand-symbol { width: var(--logo-symbol-width); }
+.site-header .brand .brand-wordmark, footer .brand .brand-wordmark { width: var(--logo-wordmark-width); }
+.site-header .brand-logo {
+    --logo-symbol-width: 80.455046px;
+    --logo-wordmark-width: 136.645872px;
+    --logo-gap: 5.959633px;
+}
+footer .brand[data-logo-variant="white"] {
+    --logo-symbol-width: 78.155070px;
+    --logo-wordmark-width: 165.924453px;
+    --logo-gap: 7.236581px;
+}
+@media (max-width: 1200px) {
+    .site-header .brand:not(.brand-logo), footer .brand:not(.brand-logo) {
+        --logo-symbol-width: 62.422018px;
+        --logo-wordmark-width: 106.018349px;
+        --logo-gap: 4.623853px;
+    }
+}
+@media (max-width: 760px) {
+    .site-header .brand-logo {
+        --logo-symbol-width: 64.155963px;
+        --logo-wordmark-width: 108.963303px;
+        --logo-gap: 4.752294px;
+    }
+}
+@media (max-width: 650px) {
+    .site-header .brand:not(.brand-logo), footer .brand:not(.brand-logo) {
+        --logo-symbol-width: 60.688073px;
+        --logo-wordmark-width: 103.073394px;
+        --logo-gap: 4.495413px;
+    }
 }
 </style>
 </head>
 <body><a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header" id="header"><div class="container nav-wrap"><a class="brand brand-logo" href="modern.html#home" aria-label="OOGIID home"><img src="app_logo-black-text.png" alt="OOGIID" width="2000" height="650"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span><span></span></button>
+<header class="site-header" id="header"><div class="container nav-wrap"><a class="brand brand-logo" href="modern.html#home" aria-label="OOGIID home" data-logo-variant="black"><img class="brand-symbol" src="app_logo-black-symbol.png" alt="" aria-hidden="true" width="420" height="415"><img class="brand-wordmark" src="app_logo-black-wordmark.png" alt="OOGIID" width="642" height="222"></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation"><span></span><span></span><span></span></button>
 <nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="modern.html#solutions">Solutions</a><a href="modern-capabilities.html">Capabilities</a><a href="modern.html#how-it-works">How We Work</a><a href="modern.html#businesses">For Businesses</a><a href="modern.html#partners">For Manufacturing Partners</a><a href="modern.html#about">About OOGIID</a>
 <a data-app-path="/login" href="https://oogiid-ui.onrender.com/login">Log in</a><a class="button button-small" data-app-path="/signup" href="https://oogiid-ui.onrender.com/signup">Sign up</a></nav></div>
 </header>
@@ -2691,7 +2755,7 @@ footer .brand-logo img { width: 360px; }
 </article></div><p class="cap-note">Project scope, process availability, tolerances and capacity are confirmed during review. This overview does not imply every process is available in-house.</p></div>
 </section>
 </main>
-<footer><div class="container footer-top"><div><a class="brand brand-logo" href="modern.html#home" aria-label="OOGIID home"><img src="app_logo-white-text.png" alt="OOGIID" width="2000" height="650"></a><p>From Engineering to Execution.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="modern.html#solutions">Solutions</a><a href="modern-capabilities.html">Capabilities</a><a href="modern.html#how-it-works">How We Work</a></div><div><strong>OOGIID</strong><a href="modern.html#businesses">For Businesses</a><a href="modern.html#partners">For Manufacturing Partners</a><a href="modern.html#about">About OOGIID</a></div><div><strong>Your account</strong><a data-app-path="/signup" href="https://oogiid-ui.onrender.com/signup">Sign up</a><a data-app-path="/login" href="https://oogiid-ui.onrender.com/login">Log in</a></div></div></div><div class="container footer-bottom"><span>© <span id="year"></span> OOGIID. All rights reserved.</span><span>ENGINEERING × MANUFACTURING × EXECUTION</span></div>
+<footer><div class="container footer-top"><div><a class="brand brand-logo" href="modern.html#home" aria-label="OOGIID home" data-logo-variant="white"><img class="brand-symbol" src="app_logo-white-symbol.png" alt="" aria-hidden="true" width="336" height="333"><img class="brand-wordmark" src="app_logo-white-wordmark.png" alt="OOGIID" width="642" height="222"></a><p>From Engineering to Execution.</p></div><div class="footer-links"><div><strong>Explore</strong><a href="modern.html#solutions">Solutions</a><a href="modern-capabilities.html">Capabilities</a><a href="modern.html#how-it-works">How We Work</a></div><div><strong>OOGIID</strong><a href="modern.html#businesses">For Businesses</a><a href="modern.html#partners">For Manufacturing Partners</a><a href="modern.html#about">About OOGIID</a></div><div><strong>Your account</strong><a data-app-path="/signup" href="https://oogiid-ui.onrender.com/signup">Sign up</a><a data-app-path="/login" href="https://oogiid-ui.onrender.com/login">Log in</a></div></div></div><div class="container footer-bottom"><span>© <span id="year"></span> OOGIID. All rights reserved.</span><span>ENGINEERING × MANUFACTURING × EXECUTION</span></div>
 </footer>
 <script>
 function initNavigation(doc, win) {

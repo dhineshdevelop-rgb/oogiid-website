@@ -125,11 +125,10 @@ test('website pages use the appropriate logo for their light or dark footer', ()
   for (const file of ['index.html', 'capabilities.html', 'modern.html', 'modern-capabilities.html']) {
     const dom = new JSDOM(readFileSync(new URL(file, import.meta.url), 'utf8'));
     const doc = dom.window.document;
-    assert.equal(doc.querySelector('header .brand img').getAttribute('src'), 'app_logo-black-text.png');
-    assert.equal(doc.querySelector('footer .brand img').getAttribute('src'), file === 'index.html' ? 'app_logo-black-text.png' : 'app_logo-white-text.png');
-    for (const img of doc.querySelectorAll('.brand img')) {
-      assert.equal(img.width, 2000);
-      assert.equal(img.height, 650);
+    assert.equal(doc.querySelector('header .brand .brand-wordmark').getAttribute('src'), 'app_logo-black-wordmark.png');
+    assert.equal(doc.querySelector('footer .brand .brand-wordmark').getAttribute('src'), file === 'index.html' ? 'app_logo-black-wordmark.png' : 'app_logo-white-wordmark.png');
+    for (const img of doc.querySelectorAll('.brand .brand-wordmark')) {
+      assert.deepEqual([img.width, img.height], [642, 222]);
       assert.equal(img.alt, 'OOGIID');
       assert.ok(readFileSync(new URL(img.getAttribute('src'), import.meta.url)).length > 0);
     }

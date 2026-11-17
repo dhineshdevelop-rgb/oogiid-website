@@ -1,9 +1,53 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { Script } from 'node:vm';
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
+
+test('every industrial image across current and historical pages is audited and matches its recorded bytes', () => {
+  const manifest = JSON.parse(readFileSync(new URL('assets/industrial/photo-manifest.json', import.meta.url), 'utf8'));
+  const files = readdirSync(new URL('assets/industrial/', import.meta.url)).filter(file => file.endsWith('.jpg'));
+  assert.deepEqual(files.sort(), manifest.map(entry => entry.file.split('/').at(-1)).sort());
+  assert.equal(manifest.filter(entry => entry.origin === 'generated').length, 22);
+  assert.deepEqual(manifest.filter(entry => entry.origin === 'stock').map(entry => entry.file).sort(), [
+    'assets/industrial/cnc-metal-cutting.jpg',
+    'assets/industrial/finished-metal-components.jpg',
+    'assets/industrial/metal-production.jpg',
+  ]);
+  const seen = new Set();
+  for (const page of readdirSync(new URL('.', import.meta.url)).filter(file => file.endsWith('.html'))) {
+    const dom = new JSDOM(readFileSync(new URL(page, import.meta.url), 'utf8'));
+    for (const img of dom.window.document.querySelectorAll('img[src^="assets/industrial/"]')) {
+      const entry = manifest.find(item => item.file === img.getAttribute('src'));
+      assert.ok(entry, `${page}: ${img.getAttribute('src')} needs an audit record`);
+      assert.equal(img.alt, entry.alt, `${page}: ${entry.file}`);
+      assert.equal(img.width, entry.width);
+      assert.equal(img.height, entry.height);
+      seen.add(entry.file);
+    }
+    dom.window.close();
+  }
+  assert.equal(seen.size, manifest.length);
+  for (const entry of manifest) {
+    const bytes = readFileSync(new URL(entry.file, import.meta.url));
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.sha256, entry.file);
+    assert.equal(bytes.readUInt16BE(0), 0xffd8);
+    assert.ok(bytes.length > 10000 && bytes.length < 650000, entry.file);
+    assert.equal(entry.review.date, '2026-11-16');
+    assert.equal(entry.review.people, 'none-visible');
+    assert.equal(entry.review.branding, 'none-visible');
+    assert.equal(entry.review.readableText, 'none-visible');
+    if (entry.origin === 'generated') {
+      assert.equal(entry.generator, 'OpenAI image_gen');
+      assert.ok(entry.prompt.includes('Entire scene completely empty of people'));
+      assert.ok(entry.prompt.includes('Absolutely no company names'));
+      assert.equal(entry.license, undefined, 'generated images must not inherit stock licensing');
+      assert.equal(entry.sourceUrl, undefined, 'generated images must not retain old stock URLs');
+      assert.equal(entry.photographer, undefined);
+    }
+  }
+});
 
 const behavior = readFileSync(new URL('./script.js', import.meta.url), 'utf8').replaceAll('export function ', 'function ');
 const pages = ['industrial-home.html', 'industrial-capabilities.html'];
@@ -21,7 +65,13 @@ for (const page of [...pages, 'index.html']) {
     assert.equal(new Set(ids).size, ids.length);
     for (const img of doc.images) {
       assert.ok(existsSync(new URL(img.getAttribute('src'), import.meta.url)));
-      assert.ok(img.alt.length > 0);
+      if (img.classList.contains('brand-symbol')) {
+        assert.equal(img.alt, '');
+        assert.equal(img.getAttribute('aria-hidden'), 'true');
+        assert.equal(img.closest('.brand').getAttribute('aria-label'), 'OOGIID home');
+      } else {
+        assert.ok(img.alt.length > 0);
+      }
       assert.ok(Number(img.width) > 0 && Number(img.height) > 0);
       if (!img.closest('header') && !img.classList.contains('hero-photo')) assert.equal(img.getAttribute('loading'), 'lazy');
     }
@@ -107,10 +157,10 @@ test('primary homepage is synchronized with the updated industrial preview', () 
   assert.equal(readFileSync(new URL('index.html', import.meta.url), 'utf8'), readFileSync(new URL('industrial-home-updated.html', import.meta.url), 'utf8'));
 });
 
-test('22 photo placements have distinct source originals, verified assets and accurate metadata', () => {
+test('all 25 industrial assets have distinct originals and the 22 primary placements retain accurate metadata', () => {
   const manifest = JSON.parse(readFileSync(new URL('assets/industrial/photo-manifest.json', import.meta.url), 'utf8'));
-  assert.equal(manifest.length, 22);
-  for (const key of ['sourceId', 'file', 'placement', 'sha256']) assert.equal(new Set(manifest.map(photo => photo[key])).size, 22, `${key} must be unique`);
+  assert.equal(manifest.length, 25);
+  for (const key of ['sourceId', 'file', 'placement', 'sha256']) assert.equal(new Set(manifest.map(photo => photo[key])).size, 25, `${key} must be unique`);
   for (const [page, group, count] of [['industrial-home.html', 'home', 15], ['industrial-capabilities.html', 'capabilities', 7]]) {
     const dom = new JSDOM(readFileSync(new URL(page, import.meta.url), 'utf8'));
     const doc = dom.window.document;
@@ -137,10 +187,19 @@ test('22 photo placements have distinct source originals, verified assets and ac
       assert.equal(img.width, entry.width);
       assert.equal(img.height, entry.height);
       assert.equal(img.style.objectPosition, entry.objectPosition);
-      assert.equal(entry.license, 'Pexels License');
-      assert.equal(entry.licenseUrl, 'https://www.pexels.com/license/');
-      assert.ok(entry.sourceUrl.endsWith(`-${entry.sourceId}/`));
-      assert.ok(entry.photographer.length > 0);
+      if (entry.origin === 'generated') {
+        assert.equal(entry.generator, 'OpenAI image_gen');
+        assert.ok(entry.prompt.includes('Absolutely no company names'));
+        assert.equal(entry.sourceUrl, undefined);
+        assert.equal(entry.photographer, undefined);
+        assert.equal(entry.license, undefined);
+      } else {
+        assert.equal(entry.origin, 'stock');
+        assert.equal(entry.license, 'Pexels License');
+        assert.equal(entry.licenseUrl, 'https://www.pexels.com/license/');
+        assert.ok(entry.sourceUrl.endsWith(`-${entry.sourceId}/`));
+        assert.ok(entry.photographer.length > 0);
+      }
       if (placement === 'hero') {
         assert.notEqual(img.getAttribute('loading'), 'lazy');
         assert.equal(img.getAttribute('fetchpriority'), 'high');

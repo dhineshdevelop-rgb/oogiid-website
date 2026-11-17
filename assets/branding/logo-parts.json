@@ -1,0 +1,58 @@
+[
+  {
+    "variant": "black",
+    "source": "app_logo-black-text.png",
+    "sourceWidth": 1090,
+    "sourceHeight": 415,
+    "sourceSha256": "a2d38d2d45ca7cbe89816f5ae687ab548ed9a48c7b8540649b7dc5eb742a2546",
+    "symbol": {
+      "file": "app_logo-black-symbol.png",
+      "crop": [
+        0,
+        0,
+        420,
+        415
+      ],
+      "rgbaSha256": "049aece2ae60c9b545f0756734102e4a13a2e3c39cb8bbc538bc742e1238e5e2"
+    },
+    "wordmark": {
+      "file": "app_logo-black-wordmark.png",
+      "crop": [
+        448,
+        88,
+        642,
+        222
+      ],
+      "rgbaSha256": "c5c0c46b563137d13037236253b8f8ec2af73691cc2217faf6ae0d6ae9f3c9d7"
+    },
+    "gap": 28
+  },
+  {
+    "variant": "white",
+    "source": "app_logo-white-text.png",
+    "sourceWidth": 1006,
+    "sourceHeight": 333,
+    "sourceSha256": "e455cc885f6825881287977457c9bf46aed6e1742f0a9947c0154599e7a213a2",
+    "symbol": {
+      "file": "app_logo-white-symbol.png",
+      "crop": [
+        0,
+        0,
+        336,
+        333
+      ],
+      "rgbaSha256": "1d3e9dc7724afc1897126046665a6cf58fe251ad8cb8f431687298eea4d39b3f"
+    },
+    "wordmark": {
+      "file": "app_logo-white-wordmark.png",
+      "crop": [
+        364,
+        47,
+        642,
+        222
+      ],
+      "rgbaSha256": "5a94d55d115df9709c720b6def76366ec48a6ce375aca576cf8a9a2bef531cc9"
+    },
+    "gap": 28
+  }
+]

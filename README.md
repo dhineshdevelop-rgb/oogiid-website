@@ -1,5 +1,16 @@
 # OOGIID website
 
+## People-free, unbranded industrial imagery
+
+The November 16, 2026 image audit covers all 25 industrial assets used by current pages and historical previews. Twenty-two photographs containing people, branding, signage, or uncertain details are replaced with original AI-generated, people-free industrial scenes using the built-in OpenAI image generation tool. Three clean stock close-ups remain: CNC cutting, metal production, and finished metal components. OOGIID’s intentional header/footer logos are retained.
+
+All image paths and dimensions are preserved. Alt text and focal points describe the new scenes. The [image manifest](assets/industrial/photo-manifest.json) records all 25 assets, their current provenance, exact generation prompts where applicable, dimensions, placement, review date, and SHA-256 hashes. The [image notes](assets/industrial/README.md) document the audit and retained stock sources. Generated assets do not inherit the replaced photographs’ attribution or stock license.
+
+The homepage retains 15 distinct images and the capabilities page seven additional originals. The earlier image previews use the same refreshed assets plus three dedicated replacements. No application functions or public interfaces change. `industrial.test.js` checks that every industrial JPEG and every HTML image reference has a matching audit record and accurate alt text, dimensions, and file hash; visual review is required to assess image content. Existing method-level unit tests remain in `script.test.js`.
+
+Validation: `npm test`, `npm run check`, and `git diff --check` passed. Full-resolution source inspection and final JPEG crop review covered all 25 assets. Browser layout verification remains unavailable because headless Chrome exited with status 134 before loading the page. No deployment was performed.
+
+
 ## Contact Us and WhatsApp
 
 The current homepage (`index.html`) and matching `industrial-home-updated.html` preview include a Contact Us section with email, phone and office details from page 1 of the supplied Oogiid company profile. Header and footer links on these pages and `industrial-capabilities-updated.html` reach that section.
@@ -26,9 +37,9 @@ Open [industrial-home.html](industrial-home.html) and [industrial-capabilities.h
 
 To preview over HTTP, run `python3 -m http.server 5173` from this directory, then visit `http://localhost:5173/industrial-home.html` or `http://localhost:5173/industrial-capabilities.html`. The photography refresh is available locally; publication is a separate step.
 
-The homepage has 15 distinct photographs and the capabilities page has seven additional photographs, with no shared original between the two logical pages. Six suitable photographs were retained in exclusive placements and 16 new images were added. Alternate filenames or crops do not count as unique originals. `assets/industrial/photo-manifest.json` records source IDs, attribution, dimensions, placement, focal points and file checksums. `industrial.test.js` verifies all 22 assignments, unique sources and hashes, actual JPEG dimensions, image loading attributes, alt text and exact primary-homepage/preview parity.
+The homepage has 15 distinct photographs and the capabilities page has seven additional photographs, with no shared original between the two logical pages. The current people-free image audit supersedes the earlier stock-photo assignments. Alternate filenames or crops do not count as unique originals. `assets/industrial/photo-manifest.json` records source IDs, attribution, dimensions, placement, focal points and file checksums. `industrial.test.js` verifies all 22 assignments, unique sources and hashes, actual JPEG dimensions, image loading attributes, alt text and exact primary-homepage/preview parity.
 
-The design uses a photographic factory hero, five benefits, six linked capability cards, a six-step journey, customer/partner panels and six detailed capability sections. All previous technical offerings are retained under the new categories. Requirement and partner buttons lead to existing signup; login and localhost routing retain the current behavior. No enquiry form, live tracking or API was added. Photographs are representative stock images, not OOGIID facilities; sources and licenses are in [the photography notes](assets/industrial/README.md).
+The design uses a photographic factory hero, five benefits, six linked capability cards, a six-step journey, customer/partner panels and six detailed capability sections. All previous technical offerings are retained under the new categories. Requirement and partner buttons lead to existing signup; login and localhost routing retain the current behavior. No enquiry form, live tracking or API was added. Images are representative industrial imagery, not OOGIID facilities; current provenance is in [the photography notes](assets/industrial/README.md).
 
 Validation: `industrial.test.js` checks standalone script equality and syntax, account routing on localhost/hosted/disk URLs, menu state, anchor closing, scroll thresholds, deterministic year, observer fallback, local image assets, heading/ID/link integrity, six matching capability destinations, six workflow steps, and retention of every existing technical offering. Method-to-test checklist: no new application functions were introduced; `initNavigation`, its account/menu/link/scroll callbacks and private `setMenu`, `initObservers` and its observer callbacks, and `initializeWebsite` retain their focused unit coverage in `script.test.js`. The industrial tests additionally execute the embedded behavior on both new pages. Run `npm test` and `npm run check`.
 
@@ -36,7 +47,7 @@ Chrome verification covered both previews at 1440, 1024, 768 and 390 pixels: loc
 
 ## Image-enhanced homepage
 
-Open [index-images.html](index-images.html) or [capabilities-images.html](capabilities-images.html) for separate copies with six industrial photographs in each page's existing capability cards. They link to each other and preserve the original text, design, illustrations, and embedded JavaScript. These earlier variants retain their original photographs; the default `index.html` now uses the industrial design described above. Open directly from disk with this directory's assets present, or serve locally using the command below and visit `/index-images.html`.
+Open [index-images.html](index-images.html) or [capabilities-images.html](capabilities-images.html) for separate copies with six industrial photographs in each page's existing capability cards. They link to each other and preserve the original text, design, illustrations, and embedded JavaScript. These earlier variants share the refreshed people-free assets; the default `index.html` now uses the industrial design described above. Open directly from disk with this directory's assets present, or serve locally using the command below and visit `/index-images.html`.
 
 Images are stored locally in `assets/industrial/`; [photography sources and license](assets/industrial/README.md) are documented there. The photographs represent capability areas, not OOGIID-owned facilities. `images.test.js` checks content/design parity after removing the image additions, local assets, accessibility attributes, preview links, and standalone behavior. No new application functions were introduced; `script.test.js` retains the method-level unit tests for the unchanged behavior.
 
@@ -79,7 +90,26 @@ Validation: `modern.test.js` verifies the earlier standalone variants and legacy
 
 ## Transparent horizontal logos
 
-- `app_logo-white-text.png`: green symbol with white “Oogiid Ex” and “From Engineering to Execution.” text; use on dark backgrounds.
-- `app_logo-black-text.png`: the matching logo with black name and tagline; use on light backgrounds.
+- `app_logo-black-text.png`: 1090 × 415, green symbol with black “Oogiid Ex” and “From Engineering to Execution.” lettering, for light backgrounds.
+- `app_logo-white-text.png`: 1006 × 333, the matching white-letter version, for dark backgrounds.
 
-Both PNGs are 2000 × 650 with transparent backgrounds. The standalone green symbol remains in `app_logo-symbol.png`. Earlier modern variants use the black-text lockup in a light toolbar and the white-text lockup in a dark footer. Current industrial pages use the black-text lockup in both their light toolbar and light footer. Responsive logo containers preserve image proportions.
+The logo PNG files themselves have been losslessly trimmed to their nontransparent bounds. The black-letter source rectangle was `(135, 117, 1090, 415)` and the white-letter rectangle was `(142, 158, 1006, 333)`, from the original 2000 × 650 canvases. Every retained RGBA pixel is unchanged, including transparent pixels within the artwork; the original gamma metadata is preserved. There is no fully transparent border on any edge. The symbol, wordmark, tagline, colors and internal arrangement are unchanged. The standalone symbol asset remains untouched.
+
+The combined images remain as source artwork. Website headers and footers now render two tightly trimmed assets side by side so only the green symbol can be resized:
+
+| Variant | Symbol asset | Wordmark and tagline asset |
+| --- | --- | --- |
+| Black lettering | `app_logo-black-symbol.png` — 420 × 415 | `app_logo-black-wordmark.png` — 642 × 222 |
+| White lettering | `app_logo-white-symbol.png` — 336 × 333 | `app_logo-white-wordmark.png` — 642 × 222 |
+
+All four assets are lossless pixel extractions from the combined PNGs. Their crop rectangles, source file hashes and decoded RGBA hashes are recorded in `assets/branding/logo-parts.json`. No bitmap resampling or regeneration was used. Each extracted asset has visible artwork touching all four edges; transparency between and within glyphs is retained.
+
+The green symbol displays at 90% of its previous width and height, while the wordmark and tagline retain their exact previous displayed dimensions. Flex layout vertically centers the two parts and preserves the previous gap (28 source pixels, scaled at each breakpoint). Symbol, wordmark and gap sizes are explicit pixel values in CSS custom properties, synchronized between `styles.css` and every page's first embedded stylesheet. The full logo's natural width decreases by the removed symbol width; outer page margins, header heights and navigation positions are preserved. There are no CSS crop offsets or clipping workarounds.
+
+Responsive sizes use the previous combined-logo display width as their scale reference: industrial pages use 215px above 1200px, 180px at 1200px and below, and 175px at 650px and below; legacy headers use 232px above 760px and 185px at 760px and below; white-letter footers use 260px. At each size, wordmark width is `referenceWidth × 642 ÷ sourceWidth`, gap is `referenceWidth × 28 ÷ sourceWidth`, and symbol width is `referenceWidth × sourceSymbolWidth ÷ sourceWidth × 0.9`. Heights follow each asset's original proportions.
+
+Home-link destinations and accessible names are unchanged. The symbol has an empty alt attribute and `aria-hidden="true"`, while the wordmark retains `alt="OOGIID"` and the link retains `aria-label="OOGIID home"`. Footer image loading behavior is preserved for both parts.
+
+`logo.test.js` verifies source and extracted PNG dimensions, decoded RGBA pixel hashes, visible edges, retained transparency, consistent accessible markup, normal image positioning, ten-percent symbol reduction, unchanged text dimensions and unchanged gap at all six responsive sizes. `script.test.js`, `modern.test.js` and `industrial.test.js` verify the split branding alongside existing page behavior. Production methods are unchanged: their unit cases in `script.test.js` cover navigation initialization and callbacks, menu/link/scroll/account behavior, observers and website initialization. No application methods were introduced.
+
+Validation passed: all 83 tests with no skipped tests, `npm run check`, and `git diff --check`. `script.js` retains 100% reported line, branch and function coverage. Local Chrome checks passed for all 10 pages at 1440, 1201, 1200, 768, 761, 760, 651, 650, 390 and 320 pixels (100 page/viewport checks). Header and footer measurements confirm the symbol is 10% smaller in both dimensions, text and gap sizes are unchanged, parts are vertically centered, outer horizontal alignment and header heights are preserved, and navigation remains unobstructed with working mobile menus. Desktop, tablet, phone and dark-footer screenshots were reviewed. Chrome required execution outside the filesystem sandbox. Changes are local; deployment was not performed.

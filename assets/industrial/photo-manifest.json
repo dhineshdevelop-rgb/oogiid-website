@@ -1,17 +1,24 @@
 [
   {
     "file": "assets/industrial/automated-factory.jpg",
-    "sourceId": "19233057",
-    "sourceUrl": "https://www.pexels.com/photo/assembling-machines-in-factory-19233057/",
-    "photographer": "Hyundai Motor Group",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-automated-factory-2026-11-16",
     "placement": "home.hero",
-    "alt": "Robotic arms assembling a vehicle in a modern factory",
+    "alt": "Robotic arms assembling metal vehicle frames in an empty factory",
     "width": 1800,
     "height": 1000,
     "objectPosition": "50% 50%",
-    "sha256": "fc776a025b84f7f9ce5f73c768f2ab71de70f2dba2e00cfd3e686d5d538a923d"
+    "sha256": "e57e67816d7c871200619dcf31f310f3fb8a973921f453d6bebeacf519cf5f34",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape 1800 by 1000. Subject: Wide modern automated assembly hall with robotic arms and generic unfinished metal chassis, no people. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/cnc-metal-cutting.jpg",
@@ -25,133 +32,207 @@
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "565366d38d3a4c210910f67a58f3876ae56363d4ab5f0744ed4df625dd6507d7"
+    "sha256": "565366d38d3a4c210910f67a58f3876ae56363d4ab5f0744ed4df625dd6507d7",
+    "origin": "stock",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/cad-workstation.jpg",
-    "sourceId": "19895882",
-    "sourceUrl": "https://www.pexels.com/photo/engineer-working-in-office-19895882/",
-    "photographer": "ThisIsEngineering",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-cad-workstation-2026-11-16",
     "placement": "home.capability-2",
-    "alt": "Engineer working with CAD models on dual monitors",
+    "alt": "Empty CAD workstation displaying mechanical models on two monitors",
     "width": 1200,
     "height": 750,
-    "objectPosition": "60% 50%",
-    "sha256": "a6d2c9df297e592649a7fb1485e1dec2c7d9d1452917dfaa357a47075f8986d7"
+    "objectPosition": "50% 50%",
+    "sha256": "9a8377691738cf93d458f5a9c7689ec623deeb685828c0b9cbb1645b0909253f",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Empty engineering workstation with unbranded monitors displaying only abstract mechanical 3D geometry, no interface text. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/prototyping.jpg",
-    "sourceId": "30275792",
-    "sourceUrl": "https://www.pexels.com/photo/3d-printer-in-modern-workspace-30275792/",
-    "photographer": "Jakub Zerdzicki",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-prototyping-2026-11-16",
     "placement": "home.capability-3",
-    "alt": "Orange and black 3D printer in a workshop",
+    "alt": "Enclosed 3D printer building a mechanical prototype in a workshop",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "d08644906c41cff06e491e16456c9cf28240c804936aa4ee2f67a09bd255307b"
+    "sha256": "8ce5c97126801ac42cba18ca89b4ca11240b28f91534e3818158495f788bfb9f",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Desktop enclosed 3D printer building a small mechanical prototype in an empty workshop. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/robotic-cell.jpg",
-    "sourceId": "34207359",
-    "sourceUrl": "https://www.pexels.com/photo/industrial-robot-arm-in-a-manufacturing-facility-34207359/",
-    "photographer": "Freek Wolsink",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-robotic-cell-2026-11-16",
     "placement": "home.capability-4",
-    "alt": "Yellow industrial robotic arm in a manufacturing cell",
+    "alt": "Yellow industrial robotic arm in an empty manufacturing cell",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "cc0c369bb7e54d187537d5b101603ed583307a8cc948d29d697f14019fe10e7a"
+    "sha256": "c22366fb3dd46c8862fe000358a00f5090bd2274af90fcb172c4b921caa0e35f",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Yellow industrial robot arm with gripper inside an empty clean manufacturing cell. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/quality-inspection.jpg",
-    "sourceId": "7166998",
-    "sourceUrl": "https://www.pexels.com/photo/high-angle-shot-of-person-measuring-an-object-7166998/",
-    "photographer": "Antoni Shkraba",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-quality-inspection-2026-11-16",
     "placement": "home.capability-5",
-    "alt": "Hands measuring a metal component with a vernier caliper",
+    "alt": "Digital caliper beside a machined metal flange on an inspection bench",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "588a682d19d8f32c892bc899badc1afd9f77b05f94aaff41bf9637cc3b1acb27"
+    "sha256": "9d301978fd00ce02b2d5d6d0ca03e4f44f0cc3d59d3562e4c99c6f1ea9e5241a",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Digital caliper with blank display resting beside a precision metal component on a clean inspection bench. Landscape aspect ratio 1200:750.",
+    "editPrompts": [
+      "Use case: precise-object-edit. Edit this industrial inspection photo: remove the small printed zero digit on the caliper slider and remove any letters or numbers anywhere on the tool, leaving only plain tick marks and smooth metal. Preserve all equipment, lighting, framing, and realistic materials. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks, letters, numbers or readable text. The digital display stays blank."
+    ],
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/supply-chain.jpg",
-    "sourceId": "6170405",
-    "sourceUrl": "https://www.pexels.com/photo/a-man-inspecting-parcels-on-a-shelves-6170405/",
-    "photographer": "Tima Miroshnichenko",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-supply-chain-2026-11-16",
     "placement": "home.capability-6",
-    "alt": "Warehouse worker checking parcels on storage shelves",
+    "alt": "Empty warehouse aisle with plain cartons arranged on storage shelves",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "1d43ae7445d94a7d4d2ea64c2ea32fb827f797d036f2a6961b339fa09a910c95"
+    "sha256": "b29f1412e773b7ed81859d82861927130ac2bc29b904adeb00fc3a90583625f0",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Empty organized warehouse aisle with plain unmarked cardboard cartons on shelving. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/engineering-design.jpg",
-    "sourceId": "5324968",
-    "sourceUrl": "https://www.pexels.com/photo/man-working-with-scheme-on-paper-at-table-5324968/",
-    "photographer": "Anna Shvets",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-engineering-design-2026-11-16",
     "placement": "home.step-1",
-    "alt": "Technical drawings being reviewed with a pencil",
+    "alt": "Mechanical drawings beside a pencil and machined metal flange",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "211199937348d45482b09847ed7aa849721870807c5330e5877528af939cf8ec"
+    "sha256": "95873330581abcebf27bf1654e44d123aa781fd342e26fb530471577efaf2236",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Overhead view of mechanical drawings with purely geometric lines and no annotations beside a pencil and metal component, no hands. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/engineering-review.jpg",
-    "sourceId": "3862129",
-    "sourceUrl": "https://www.pexels.com/photo/engineers-in-workshop-3862129/",
-    "photographer": "ThisIsEngineering",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-engineering-review-2026-11-16",
     "placement": "home.step-2",
-    "alt": "Engineering team discussing a project in a workshop",
+    "alt": "Mechanical prototypes and geometric drawings on an empty review table",
     "width": 1200,
     "height": 750,
-    "objectPosition": "50% 45%",
-    "sha256": "cd57974252fdc0018250ca3c5053e29f4a69ac8ab2918bb0559051e9688408ed"
+    "objectPosition": "50% 50%",
+    "sha256": "c00bd4415195054841253db778ecb012287130829274baa4263b4c7e98244d26",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Empty engineering project review table with mechanical prototypes and geometric drawings in a workshop. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/supplier-assessment.jpg",
-    "sourceId": "32845682",
-    "sourceUrl": "https://www.pexels.com/photo/industrial-workers-inspecting-steel-coils-in-factory-32845682/",
-    "photographer": "Sergey Sergeev",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-supplier-assessment-2026-11-16",
     "placement": "home.step-3",
-    "alt": "Two industrial workers examining steel coils in a factory",
+    "alt": "Steel coils and metal samples arranged in an empty industrial warehouse",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "a3ad35071e5718368e00ec02f5d4fa3bdee00a4e3c4212dab04326e14192288d"
+    "sha256": "0f1b45972e7d24aa99084a4e4c9c2e61bd91da13f7bec65d314dd9b0fe0eb5de",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Neatly arranged steel coils and material samples in an empty industrial warehouse. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/costing-proposal.jpg",
-    "sourceId": "7651738",
-    "sourceUrl": "https://www.pexels.com/photo/person-using-a-calculator-7651738/",
-    "photographer": "Kindel Media",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-costing-proposal-2026-11-16",
     "placement": "home.step-4",
-    "alt": "Hands using a calculator alongside financial documents",
+    "alt": "Calculator and blank proposal sheets beside machined metal components",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "e936a3f701e6ae134eb536e9d89faa9226488a4c56d6695a5feaf6a440580409"
+    "sha256": "9f21bc050cdd0910dfd531c05124c661822a80a70436f6bb471c2c22f3e8e0d0",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Unbranded calculator with blank display beside blank sheets and sample metal components on an empty desk. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/metal-production.jpg",
@@ -165,63 +246,106 @@
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "17435df7d87438dfdd26b70093db4a2228912e2b9ab2a88688d27f4e3b5475b6"
+    "sha256": "17435df7d87438dfdd26b70093db4a2228912e2b9ab2a88688d27f4e3b5475b6",
+    "origin": "stock",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/delivery-packing.jpg",
-    "sourceId": "4481260",
-    "sourceUrl": "https://www.pexels.com/photo/men-working-in-a-warehouse-4481260/",
-    "photographer": "Tiger Lily",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-delivery-packing-2026-11-16",
     "placement": "home.step-6",
-    "alt": "Warehouse team reviewing shipment preparations beside packed boxes",
+    "alt": "Plain cartons and protective foam beside metal components at a packing station",
     "width": 1200,
     "height": 750,
-    "objectPosition": "50% 65%",
-    "sha256": "f6d9a054a3612bd1fe301447ec5cbd2184399f7c5c7398f65a78c8ff12fbc156"
+    "objectPosition": "50% 50%",
+    "sha256": "b6949798f024fec90c5c1eee93f7f60b788194f74ed563b37f43acb4df22ae46",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Empty packing station with plain unmarked sealed cartons, protective foam and metal components. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/customer-engineer.jpg",
-    "sourceId": "2182974",
-    "sourceUrl": "https://www.pexels.com/photo/man-wearing-eyeglasses-facing-computer-2182974/",
-    "photographer": "LinkedIn Sales Navigator",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-customer-engineer-2026-11-16",
     "placement": "home.customers",
-    "alt": "Professional wearing eyeglasses working at a computer",
+    "alt": "Empty engineering desk with a laptop model and matching machined component",
     "width": 1200,
     "height": 750,
-    "objectPosition": "50% 45%",
-    "sha256": "0abf715b1855f06b6ccc83f5dcaa1a6be43fa451a0126d9f240bc9b0ff9c0891"
+    "objectPosition": "50% 50%",
+    "sha256": "f71232a4d9692a514881ad705fb6d064830d5f08074b7dff2c9ea6fd9b6946aa",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Empty professional engineering desk with unbranded laptop displaying a mechanical 3D model without text, notebook and machined part. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/robotic-factory.jpg",
-    "sourceId": "15888223",
-    "sourceUrl": "https://www.pexels.com/photo/men-in-protective-uniform-welding-with-robot-in-workshop-15888223/",
-    "photographer": "Hoang NC",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-robotic-factory-2026-11-16",
     "placement": "home.partners",
-    "alt": "Welding specialists working alongside industrial robots",
+    "alt": "Robotic arms welding steel frames on an empty automated production line",
     "width": 1800,
     "height": 1000,
     "objectPosition": "50% 50%",
-    "sha256": "75f8d534bf31673f7046830e78207699dd41dc83b97c20841157fd482077c8ae"
+    "sha256": "7599e98aa2811002a01aa242a9d6520ec6406ef12bc08c7ada31477f5c0a401d",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Wide empty robotic welding production line with robotic arms welding steel frames. Landscape aspect ratio 1800:1000.",
+    "editPrompts": [
+      "Use case: precise-object-edit. Remove ALL decals, badges, text-like marks, numbers and labels from every robotic arm, pedestal, overhead crane, and background machine. In particular remove the dark vertical writing on the large foreground yellow arm and the blue label on its black base. All paint and metal surfaces must be plain unmarked material. Preserve the industrial scene, composition, objects, lighting and realistic materials. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks, letters, numbers or readable text anywhere."
+    ],
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/capabilities-factory.jpg",
-    "sourceId": "38804512",
-    "sourceUrl": "https://www.pexels.com/photo/modern-industrial-production-facility-interior-38804512/",
-    "photographer": "YIHAI LASER",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-capabilities-factory-2026-11-16",
     "placement": "capabilities.hero",
-    "alt": "Wide view of a manufacturing facility with machinery and equipment",
+    "alt": "Empty manufacturing facility with CNC machines and clear production aisles",
     "width": 1800,
     "height": 1000,
-    "objectPosition": "60% 50%",
-    "sha256": "ec23d8ac03ac597766f63c710d222b6315647152fd2f051bab2966496a52bf0f"
+    "objectPosition": "50% 50%",
+    "sha256": "f132a360f1c18e41d9400c6479acf7721b525d31cf93c6341ac43d71217f1fef",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Wide empty modern manufacturing facility with generic CNC machines and clean aisles. Landscape aspect ratio 1800:1000.",
+    "editPrompts": [
+      "Use case: precise-object-edit. Remove the tiny white brand badge in the upper right corner of the tool cabinet at the lower left of this factory photograph. Also remove all other badges, lettering, numbers, labels and decals from every cabinet and machine control panel, making the button keys blank. Preserve the empty factory, machines, lighting, aisle and framing exactly. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks or readable text anywhere.",
+      "Use case: precise-object-edit. Remove the entire rolling tool cabinet in the lower left foreground, including its wooden top, drawers, white badge, and wheels. Replace that area with empty clean gray factory floor and the plain CNC machine side behind it. Keep the rest of the empty manufacturing hall, machines, aisle, lighting and camera framing unchanged. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks, letters, numbers or readable text anywhere."
+    ],
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/finished-metal-components.jpg",
@@ -235,76 +359,197 @@
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "3bc14e7a53b25c2732da9ca9d76ad200009527483636e49c81ff8d371d87d20b"
+    "sha256": "3bc14e7a53b25c2732da9ca9d76ad200009527483636e49c81ff8d371d87d20b",
+    "origin": "stock",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/product-engineering.jpg",
-    "sourceId": "7180484",
-    "sourceUrl": "https://www.pexels.com/photo/man-designing-an-electronic-figurine-7180484/",
-    "photographer": "Thirdman",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-product-engineering-2026-11-16",
     "placement": "capabilities.capability-2",
-    "alt": "Product engineer holding a small model beside a laptop",
+    "alt": "Exploded mechanical prototype and geometric sketches on a development bench",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "42ad0f512755456318ba53b03b38b1f776b1e2424306c0ad64503724d466d53a"
+    "sha256": "9e66ad682ce6f9ad95e69d20eed0e1f0664d1762902429812040e25236e309d4",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Mechanical product development bench with exploded prototype assembly, parts and geometric design sketches, no people. Landscape aspect ratio 1200:750.",
+    "editPrompts": [
+      "Use case: precise-object-edit. Remove the small text-like brand mark centered on the laptop bottom bezel beneath its screen. Remove all numbers and letters on the caliper and ruler, leaving only plain tick marks. Make laptop keys blank. Preserve the industrial scene, composition, objects, lighting and realistic materials. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks, letters, numbers or readable text anywhere."
+    ],
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/prototype-testing.jpg",
-    "sourceId": "3862608",
-    "sourceUrl": "https://www.pexels.com/photo/female-engineer-designing-lights-3862608/",
-    "photographer": "ThisIsEngineering",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-prototype-testing-2026-11-16",
     "placement": "capabilities.capability-3",
-    "alt": "Engineer testing a lighting prototype at a workbench",
+    "alt": "Lighting prototype and test equipment on an empty electronics workbench",
     "width": 1200,
     "height": 750,
-    "objectPosition": "50% 45%",
-    "sha256": "90422d09f64b62973e4f22b7451732ce2fb45132c771325f5fa72eb8af43bc59"
+    "objectPosition": "50% 50%",
+    "sha256": "fd1c22c7ff752c186caee098e9cd27a05a36883e2a06101a0ae4c21a3c6f7373",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Empty electronics testing bench with small lighting prototype and generic test equipment with blank screens. Landscape aspect ratio 1200:750.",
+    "editPrompts": [
+      "Use case: precise-object-edit. Remove all printed markings, legends, letters and digits from the oscilloscope, power supply, multimeter, and work mat. Keep switches, knobs and blank screens; all panel surfaces and button faces should be smooth and unprinted. Preserve all equipment, lighting, framing and realistic materials. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks, letters, numbers or readable text anywhere."
+    ],
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/machine-integration.jpg",
-    "sourceId": "36692505",
-    "sourceUrl": "https://www.pexels.com/photo/engineer-supervises-robotic-machinery-in-factory-36692505/",
-    "photographer": "Hoang NC",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-machine-integration-2026-11-16",
     "placement": "capabilities.capability-4",
-    "alt": "Engineer using a laptop beside an industrial robotic arm",
+    "alt": "Industrial robotic arm integrated with a conveyor and blank control screen",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "94c05548dee3bdada291eb49bc064238ee29356d0882c9b16bf689e5066f2ae2"
+    "sha256": "b5da428e870cb67245115295882349ba196d70df2297f4854b7aff672945897b",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Generic robotic arm connected to an automated conveyor with an unbranded control panel with blank screen, empty factory. Landscape aspect ratio 1200:750.",
+    "editPrompts": [
+      "Use case: precise-object-edit. Remove the tiny white brand mark below the black control-panel screen. Remove the printed button labels and lettering on the yellow emergency stop surround. The control screen bezel, panel and buttons must have completely plain unprinted surfaces. Preserve the robot, factory, framing, colors and lighting. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks, letters, numbers or readable text anywhere."
+    ],
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/dimensional-inspection.jpg",
-    "sourceId": "7018177",
-    "sourceUrl": "https://www.pexels.com/photo/close-up-of-mechanic-hands-7018177/",
-    "photographer": "Alex Domínguez",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-dimensional-inspection-2026-11-16",
     "placement": "capabilities.capability-5",
-    "alt": "Gloved mechanic checking a metal component with a caliper",
+    "alt": "Micrometer and caliper beside a machined steel shaft on a metrology bench",
     "width": 1200,
     "height": 750,
     "objectPosition": "50% 50%",
-    "sha256": "18959b1071d6bc83751146afac1d76d1bbdbf31f7377eee306e59e79869fd92a"
+    "sha256": "b26c6cf52ff32d3109709971aeb40b1bfa324e4c69ab78943afbf26b613e774c",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Precision micrometer and caliper beside a machined steel shaft on a clean metrology surface, no people. Landscape aspect ratio 1200:750.",
+    "editPrompts": [
+      "Use case: precise-object-edit. Remove all small numbers, letters and printed graduations on the micrometer barrel and caliper. All measurement tools must be smooth unprinted metal with no text or numerals. Preserve all equipment, lighting, framing and realistic materials. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks, letters, numbers or readable text anywhere."
+    ],
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   },
   {
     "file": "assets/industrial/logistics-coordination.jpg",
-    "sourceId": "1543924",
-    "sourceUrl": "https://www.pexels.com/photo/man-holding-clipboard-inside-room-1543924/",
-    "photographer": "Craig Adderley",
-    "license": "Pexels License",
-    "licenseUrl": "https://www.pexels.com/license/",
+    "sourceId": "generated-logistics-coordination-2026-11-16",
     "placement": "capabilities.capability-6",
-    "alt": "Warehouse professional reviewing shipment paperwork on a clipboard",
+    "alt": "Blank clipboard and plain parcels at an empty warehouse dispatch station",
     "width": 1200,
     "height": 750,
-    "objectPosition": "50% 45%",
-    "sha256": "dfb53f1528d12df0fc9b9fe3166e3dd142aa3cf83962548529730a7a50959942"
+    "objectPosition": "50% 50%",
+    "sha256": "7f7828f1ab7aa6abfd3b378b594c8889bd3c42824eb46f5f0499688255dbaae9",
+    "origin": "generated",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Empty dispatch station with blank clipboard and plain unmarked parcels beside warehouse racks. Landscape aspect ratio 1200:750.",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
+  },
+  {
+    "file": "assets/industrial/precision-machining.jpg",
+    "placement": "legacy.precision-machining",
+    "width": 1200,
+    "height": 750,
+    "objectPosition": "50% 50%",
+    "alt": "CNC lathe chuck holding a precision turned steel workpiece",
+    "origin": "generated",
+    "sourceId": "generated-precision-machining-2026-11-16",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Empty CNC lathe interior with chuck holding a precisely turned steel cylinder. Landscape aspect ratio 1200:750.",
+    "sha256": "a4b215d722aa7b74eb2f03e991bb2f8271b1550aeaf7602ee708bd8bdaaa01ff",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
+  },
+  {
+    "file": "assets/industrial/fabrication.jpg",
+    "placement": "legacy.fabrication",
+    "width": 1200,
+    "height": 750,
+    "objectPosition": "50% 50%",
+    "alt": "Automated welding torch joining a steel frame on a fabrication table",
+    "origin": "generated",
+    "sourceId": "generated-fabrication-2026-11-16",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Automated welding torch joining steel frame on a fabrication table with sparks, no people. Landscape aspect ratio 1200:750.",
+    "sha256": "f70b4f18cf98cfc6c66787800f23bc69a9d23e4a89ce065a25156b448cf2bf82",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
+  },
+  {
+    "file": "assets/industrial/assembly.jpg",
+    "placement": "legacy.assembly",
+    "width": 1200,
+    "height": 750,
+    "objectPosition": "50% 50%",
+    "alt": "Open mechanical gearbox with fasteners and tools on an empty assembly bench",
+    "origin": "generated",
+    "sourceId": "generated-assembly-2026-11-16",
+    "generator": "OpenAI image_gen",
+    "generatedAt": "2026-11-16",
+    "prompt": "Use case: photorealistic-natural. Asset type: industrial website photograph, wide landscape. Realistic materials, clean professional industrial photography, natural light, credible mechanical detail. Entire scene completely empty of people, faces, hands, human figures or portraits. Absolutely no company names, logos, branding, watermarks, letters, numbers, readable text, labels or signage anywhere, including machine parts and background. Generic unbranded equipment only. One cohesive photograph, no collage. Subject: Partially assembled generic mechanical gearbox with neatly arranged bolts and tools on an empty workbench. Landscape aspect ratio 1200:750.",
+    "editPrompts": [
+      "Use case: precise-object-edit. Remove the small white rectangular badge at the top right of the tool cabinet in the left background. Remove any text-like embossing on the wrench in the foreground and any other label-like marks. Preserve the gearbox, tools, bolts, framing, lighting and realistic materials. Entire scene completely empty of people. Absolutely no company names, logos, branding, watermarks, letters, numbers or readable text anywhere."
+    ],
+    "sha256": "de65bb44af45a35e16ea9dbd4fc721612456059793859072cec3665deaf5392f",
+    "review": {
+      "date": "2026-11-16",
+      "method": "manual full-resolution inspection; responsive crop review recorded in image notes",
+      "people": "none-visible",
+      "branding": "none-visible",
+      "readableText": "none-visible"
+    }
   }
 ]
